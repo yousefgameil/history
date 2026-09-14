@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مصر عبر التاريخ | رحلة تفاعلية في أركان الدولة</title>
+<title>مصر عبر التاريخ | بص يسطا هقولك حكاية</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* ========== المتغيرات ========== */
 :root{
   --papyrus:#f4e4c1;
   --papyrus-dark:#e8d5a8;
@@ -21,6 +20,7 @@
   --sand:#d9c08a;
   --shadow:rgba(59,36,18,.25);
   --glass:rgba(244,228,193,.85);
+  --fun:#ff6b35;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -33,7 +33,6 @@ body{
 }
 h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 
-/* ========== خلفية البردي ========== */
 .papyrus-bg{
   background:
     radial-gradient(circle at 20% 30%, rgba(201,162,39,.15), transparent 40%),
@@ -50,7 +49,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   pointer-events:none;
 }
 
-/* ========== الهيدر ========== */
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
@@ -65,9 +63,7 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   position:absolute;bottom:0;left:0;right:0;height:150px;
   background:linear-gradient(180deg, transparent, var(--papyrus));
 }
-.hieroglyphs{
-  position:absolute;inset:0;overflow:hidden;pointer-events:none;
-}
+.hieroglyphs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .hieroglyph{
   position:absolute;
   font-family:'Amiri',serif;
@@ -94,7 +90,7 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   letter-spacing:2px;
 }
 .hero .subtitle{
-  font-size:clamp(1.1rem,2.5vw,1.6rem);
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
   color:var(--sand);
   margin-bottom:2rem;
   font-weight:300;
@@ -119,7 +115,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-15px)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 
-/* ========== شريط التنقل ========== */
 .nav{
   position:sticky;top:0;z-index:100;
   background:rgba(26,15,6,.95);
@@ -146,11 +141,7 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   transform:translateY(-2px);
 }
 
-/* ========== الأقسام ========== */
-.section{
-  padding:5rem 1.5rem;
-  position:relative;
-}
+.section{padding:5rem 1.5rem;position:relative}
 .container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
 
 .section-title{
@@ -175,7 +166,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   font-size:1.05rem;max-width:700px;margin:1rem auto 0;
 }
 
-/* ========== الكروت ========== */
 .grid{display:grid;gap:1.5rem}
 .grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -223,7 +213,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 .card ul{padding-right:1.3rem;margin-top:.5rem}
 .card li{margin-bottom:.5rem}
 
-/* ========== صناديق مميزة ========== */
 .definition{
   background:linear-gradient(135deg, rgba(30,96,145,.12), rgba(30,96,145,.05));
   border-right:6px solid var(--nile);
@@ -250,7 +239,7 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
   position:relative;
 }
 .tip::before{
-  content:'🔑 تكنيك الحفظ';
+  content:'🔑 تكنيك الحفظ يا معلم';
   display:inline-block;
   background:var(--gold);
   color:var(--brown);
@@ -302,11 +291,7 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 .bubble .name{font-weight:700;color:var(--terracotta);font-size:.9rem;margin-bottom:.3rem}
 
 /* ========== الخط الزمني ========== */
-.timeline{
-  position:relative;
-  padding:2rem 0;
-  margin:2rem 0;
-}
+.timeline{position:relative;padding:2rem 0;margin:2rem 0}
 .timeline::before{
   content:'';
   position:absolute;right:50%;top:0;bottom:0;
@@ -345,7 +330,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 }
 .tl-card h4{color:var(--terracotta);font-size:1.15rem;margin-bottom:.3rem}
 
-/* ========== الأرقام الكبيرة ========== */
 .stat-row{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -365,7 +349,6 @@ h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
 .stat .num{font-family:'Amiri',serif;font-size:2.5rem;font-weight:900;line-height:1;margin-bottom:.5rem}
 .stat .label{font-size:.9rem;color:var(--sand)}
 
-/* ========== جدول ========== */
 .table-wrap{overflow-x:auto;border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
 table{
   width:100%;border-collapse:collapse;
@@ -385,6 +368,34 @@ td{
   color:var(--brown-light);
 }
 tr:hover td{background:rgba(201,162,39,.1)}
+
+/* ========== صندوق النكتة ========== */
+.joke-box{
+  background:linear-gradient(135deg, rgba(255,107,53,.15), rgba(255,107,53,.05));
+  border:2px dashed var(--fun);
+  border-radius:14px;
+  padding:1.2rem 1.5rem;
+  margin:1.5rem 0;
+  position:relative;
+  animation:jokeWiggle 3s infinite;
+}
+@keyframes jokeWiggle{
+  0%,100%{transform:rotate(0deg)}
+  25%{transform:rotate(-.5deg)}
+  75%{transform:rotate(.5deg)}
+}
+.joke-box::before{
+  content:'😂 هزار وكده';
+  display:inline-block;
+  background:var(--fun);
+  color:#fff;
+  font-weight:700;
+  padding:.2rem .8rem;
+  border-radius:20px;
+  font-size:.8rem;
+  margin-bottom:.6rem;
+}
+.joke-box p{color:var(--brown);font-weight:600}
 
 /* ========== قسم الامتحان ========== */
 .exam-section{
@@ -505,14 +516,6 @@ tr:hover td{background:rgba(201,162,39,.1)}
   border-color:var(--gold-deep);
   box-shadow:0 4px 15px rgba(201,162,39,.4);
 }
-.option.correct{
-  background:linear-gradient(135deg, rgba(76,175,80,.35), rgba(56,142,60,.25));
-  border-color:#2e7d32;
-}
-.option.wrong{
-  background:linear-gradient(135deg, rgba(244,67,54,.3), rgba(198,40,40,.2));
-  border-color:#c62828;
-}
 .option-key{
   display:inline-flex;align-items:center;justify-content:center;
   width:36px;height:36px;flex-shrink:0;
@@ -558,7 +561,6 @@ tr:hover td{background:rgba(201,162,39,.1)}
   box-shadow:0 6px 20px rgba(46,125,50,.4);
 }
 
-/* ========== النتيجة ========== */
 .result-screen{
   display:none;
   text-align:center;
@@ -607,7 +609,6 @@ tr:hover td{background:rgba(201,162,39,.1)}
 .result-stat .n{font-family:'Amiri',serif;font-size:2rem;font-weight:900;color:var(--brown)}
 .result-stat .l{font-size:.85rem;color:var(--brown-light)}
 
-/* ========== مراجعة الإجابات ========== */
 .review{
   margin-top:2rem;
   text-align:right;
@@ -642,7 +643,6 @@ tr:hover td{background:rgba(201,162,39,.1)}
 }
 .review-item .expl::before{content:'💡 ';font-weight:700}
 
-/* ========== الفوتر ========== */
 footer{
   background:#1a0f06;
   color:var(--sand);
@@ -653,11 +653,9 @@ footer{
 }
 footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem}
 
-/* ========== الحركات ========== */
 .reveal{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ========== استجابة ========== */
 @media(max-width:768px){
   .timeline::before{right:20px}
   .tl-item{width:100%;padding-right:50px;padding-left:1rem;text-align:right!important;margin-right:0!important}
@@ -676,26 +674,26 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <header class="hero" id="home">
   <div class="hieroglyphs" id="hieroglyphs"></div>
   <div class="hero-content">
-    <div class="cartouche">𓂀 رحلة في تاريخ مصر 𓂀</div>
+    <div class="cartouche">𓂀 بص يسطا هقولك حكاية 𓂀</div>
     <h1>مصر عبر التاريخ</h1>
-    <p class="subtitle">من أركان الدولة القديمة إلى مقاومة الاحتلال — رحلة تفاعلية شاملة</p>
+    <p class="subtitle">يعني إيه دولة؟ وإزاي الفرس والهكسوس والرومان كلهم كانوا عايزين ياكلوا من الحلة؟</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="#lesson1" class="btn btn-primary">📖 ابدأ الرحلة</a>
-      <a href="#exam" class="btn btn-secondary">📝 اذهب للامتحان</a>
+      <a href="#lesson1" class="btn btn-primary">📖 يلا نبدأ يا معلم</a>
+      <a href="#exam" class="btn btn-secondary">📝 اجري على الامتحان</a>
     </div>
   </div>
   <div class="scroll-hint">⬇</div>
 </header>
 
-<!-- ========== شريط التنقل ========== -->
+<!-- ========== التنقل ========== -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#lesson1">مفهوم الدولة</a>
-    <a href="#arkan">الأركان</a>
-    <a href="#geography">الحيز الجغرافي</a>
+    <a href="#lesson1">يعني إيه دولة؟</a>
+    <a href="#arkan">الأركان 4</a>
+    <a href="#geography">الحدود</a>
     <a href="#power">السلطة</a>
     <a href="#sovereignty">السيادة</a>
-    <a href="#components">المقومات</a>
+    <a href="#components">ليه مصر صمدت؟</a>
     <a href="#hyksos">الهكسوس</a>
     <a href="#persians">الفرس</a>
     <a href="#alexander">الإسكندر</a>
@@ -708,33 +706,49 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="lesson1">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">مفهوم الدولة</h2>
-      <p class="section-subtitle">ما الذي نعني به "الدولة" بمفهومها الحديث؟</p>
+      <h2 class="section-title">يعني إيه "دولة" يا عم؟</h2>
+      <p class="section-subtitle">سؤال بسيط بس الإجابة عليه هتخليك تفهم كل حاجة بعد كده</p>
     </div>
 
     <div class="dialogue reveal" data-dir="left">
       <div class="avatar student">🧑‍🎓</div>
       <div class="bubble">
-        <div class="name">الطالب</div>
-        <p>يا أستاذ، نسمع كلمة "دولة" كثيرًا... فما تعريفها الحقيقي؟</p>
+        <div class="name">التلميذ البضان</div>
+        <p>يسطا يا أستاذ، إحنا بنسمع كلمة "دولة" كل شوية... طب يعني إيه دولة بالظبط؟ أرض وشعب وخلاص؟</p>
       </div>
     </div>
 
     <div class="dialogue reveal" data-dir="right">
       <div class="avatar pharaoh">👑</div>
       <div class="bubble">
-        <div class="name">المعلم</div>
-        <p>الدولة هي <strong>وحدة سياسية</strong> تشغل <strong>حيزًا جغرافيًا محددًا</strong>، وتضم <strong>شعبًا</strong> يقوم على دعامة دائمة ويخضع لقوانينها، وتديرها <strong>سلطة منظمة</strong> تباشر اختصاصاتها بما يحقق الأمن والاستقرار، وتمارس <strong>سيادتها</strong> على شئونها الداخلية والخارجية.</p>
+        <div class="name">المعلم الفاجر</div>
+        <p>يا ابني بص، الدولة مش مجرد أرض وشعب وخلاص. الدولة يا سيدي هي <strong>وحدة سياسية</strong> واخدة <strong>حيز جغرافي معين</strong>، وفيها <strong>شعب</strong> ماسك في بعضه وماشي على قوانين، وفيه <strong>سلطة</strong> بتدير كل حاجة، وكل ده بيتحرك بـ<strong>سيادة</strong> يعني محدش بيقولها "اعملي كده" من برة.</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal" data-dir="left">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>يعني زي عيلة كبيرة؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal" data-dir="right">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>أيوه بالظبط! بس العيلة دي عندها بيت (الحيز الجغرافي)، وسكان (الشعب)، وحاكم بياخد القرار (السلطة)، ومحدش من الجيران بيقوله يعمل إيه (السيادة). فهمت؟</p>
       </div>
     </div>
 
     <div class="definition reveal">
-      <strong>📌 التعريف الكامل:</strong>
-      <p style="margin-top:.5rem">الدولة = وحدة سياسية + حيز جغرافي محدد + شعب + سلطة منظمة + سيادة داخلية وخارجية.</p>
+      <strong>📌 التعريف الموزون:</strong>
+      <p style="margin-top:.5rem">الدولة هي وحدة سياسية واخدة حيز جغرافي محدد، وفيها شعب قاعد على دعامة ثابتة وبيخضع لقوانينها، وبتديرها سلطة منظمة بتشيل هم الأمن والاستقرار، وبتتحرك بسيادتها في شؤونها الداخلية والخارجية.</p>
     </div>
 
     <div class="tip reveal">
-      احفظ عناصر الدولة بهذا الاختصار:
+      احفظ مكونات الدولة بالحروف دي عشان لو نسيت:
       <div style="margin-top:.8rem;text-align:center">
         <code>و ح ش س س</code>
       </div>
@@ -742,33 +756,37 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
         <strong>و</strong>حدة سياسية — <strong>ح</strong>يز جغرافي — <strong>ش</strong>عب — <strong>س</strong>لطة — <strong>س</strong>يادة
       </p>
     </div>
+
+    <div class="joke-box reveal">
+      <p>يعني لو واحد قالك "مصر دولة" ومقلش عليها حيز جغرافي، قوله: "طب على أي أرض بتتحكم؟ في المريخ يعني؟" 😂</p>
+    </div>
   </div>
 </section>
 
-<!-- ========== الأركان الأربعة ========== -->
+<!-- ========== الأركان ========== -->
 <section class="section papyrus-bg" id="arkan" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">أركان الدولة الأربعة</h2>
-      <p class="section-subtitle">بدون أي ركن منها لا تقوم للدولة قائمة</p>
+      <h2 class="section-title">الأركان الأربعة... اللي من غيرهم الدولة بتبقى ناقصة</h2>
+      <p class="section-subtitle">زي كرسي بأربع رجلين... لو رجل اتكسرت، الكرسي بيقع</p>
     </div>
 
     <div class="grid grid-2">
       <!-- الشعب -->
       <div class="card reveal">
         <h3><span class="card-icon">👥</span>1. الشعب</h3>
-        <p>يشمل جميع المواطنين المقيمين داخل حدود الدولة أو خارجها ممن يحملون الجنسية المصرية.</p>
+        <p>كل الناس اللي عايشة جوة البلد أو برة البلد بس ماسكة الجنسية المصرية.</p>
         <div class="definition" style="margin-top:1rem">
-          <strong>لماذا يُعد الشعب الركن الرئيسي؟</strong>
-          <p style="margin-top:.4rem">لأن الدستور نصّ في مادته الرابعة على أن السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات.</p>
+          <strong>ليه الشعب هو الركن الأساسي؟</strong>
+          <p style="margin-top:.4rem">لأن الدستور في المادة الرابعة بيقول بالحرف: "السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات". يعني الشعب هو البوصلة.</p>
         </div>
-        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">دور الشعب في بناء الدولة:</p>
+        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">الشعب بيعمل إيه في الدولة؟</p>
         <ul>
-          <li><strong>سياسيًا:</strong> انتخاب الحكام ومراقبة الحكومة عبر مجلس النواب</li>
-          <li><strong>اقتصاديًا:</strong> العمل والإنتاج ودفع الضرائب</li>
-          <li><strong>أمنيًا:</strong> الالتزام بالدستور والقوانين ودعم الأمن</li>
-          <li><strong>هوية:</strong> الحفاظ على التراث والثقافة والعادات</li>
-          <li><strong>دفاعيًا:</strong> مساندة القوات المسلحة والعمل التطوعي</li>
+          <li><strong>سياسيًا:</strong> بينتخب الحكام وبيراقب الحكومة من خلال مجلس النواب</li>
+          <li><strong>اقتصاديًا:</strong> بيشتغل وينتج ويدفع الضرايب</li>
+          <li><strong>أمنيًا:</strong> بيلتزم بالدستور والقوانين وبيدعم الأمن</li>
+          <li><strong>هوية:</strong> بيحافظ على التراث والثقافة والعادات</li>
+          <li><strong>دفاعيًا:</strong> بيساند الجيش وبيتطوع في الأزمات</li>
         </ul>
         <div class="tip">
           <code>س ا أ هـ د</code>
@@ -779,36 +797,36 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
       <!-- الحيز الجغرافي -->
       <div class="card reveal">
         <h3><span class="card-icon">🗺️</span>2. الحيز الجغرافي</h3>
-        <p>الرقعة المحددة التي تمارس الدولة سيادتها عليها، وتشمل:</p>
+        <p>الرقعة اللي الدولة بتتحكم فيها، وبيشمل:</p>
         <ul>
           <li>اليابس (الأرض)</li>
           <li>المياه الإقليمية</li>
           <li>المجال الجوي</li>
         </ul>
         <div class="definition" style="margin-top:1rem">
-          <strong>حدود مصر:</strong>
+          <strong>حدود مصر بالأرقام:</strong>
           <ul style="margin-top:.4rem">
-            <li>جنوبًا: دائرة عرض 22 (رُسمت 1899)</li>
-            <li>شمالًا: ساحل البحر المتوسط</li>
-            <li>شرقًا: خليج العقبة + البحر الأحمر + حدود فلسطين (1906)</li>
-            <li>غربًا: خط طول 25 (حدود ليبيا — 1925)</li>
+            <li>جنوب: دايرة عرض 22 (اتحددت سنة 1899)</li>
+            <li>شمال: ساحل البحر المتوسط</li>
+            <li>شرق: خليج العقبة + البحر الأحمر + حدود فلسطين (1906)</li>
+            <li>غرب: خط طول 25 (حدود ليبيا — 1925)</li>
           </ul>
         </div>
-        <p style="margin-top:1rem"><strong>المياه الإقليمية:</strong> 12 ميلًا بحريًا من خط الأساس للساحل.</p>
-        <p><strong>المجال الجوي:</strong> المساحة الرأسية التي تعلو اليابس والمياه الإقليمية.</p>
+        <p style="margin-top:1rem"><strong>المياه الإقليمية:</strong> 12 ميل بحري من خط الأساس للساحل.</p>
+        <p><strong>المجال الجوي:</strong> المساحة الطايرة فوق الأرض والمياه.</p>
       </div>
 
       <!-- السلطة -->
       <div class="card reveal">
         <h3><span class="card-icon">🏛️</span>3. السلطة</h3>
-        <p>المؤسسات التي تدير شئون الدولة وتضع القوانين وتنفذها وتحافظ على الأمن العام.</p>
-        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">السلطات الثلاث وفق الدستور:</p>
+        <p>المؤسسات اللي بتدير البلد وبتسن القوانين وبتنفذها وبتحافظ على الأمن.</p>
+        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">السلطات التلاتة وفق الدستور:</p>
         <div class="table-wrap" style="margin-top:.8rem">
           <table>
-            <tr><th>السلطة</th><th>المادة</th><th>الاختصاص</th></tr>
-            <tr><td>التشريعية</td><td>101</td><td>سن القوانين + الموازنة + الرقابة</td></tr>
-            <tr><td>التنفيذية</td><td>139/163</td><td>تنفيذ القوانين وإدارة الدولة</td></tr>
-            <tr><td>القضائية</td><td>184</td><td>الفصل في المنازعات وإصدار الأحكام</td></tr>
+            <tr><th>السلطة</th><th>المادة</th><th>بتعمل إيه؟</th></tr>
+            <tr><td>التشريعية</td><td>101</td><td>بتسن القوانين + الموازنة + بتراقب</td></tr>
+            <tr><td>التنفيذية</td><td>139/163</td><td>بتنفذ القوانين وبتدير الدولة</td></tr>
+            <tr><td>القضائية</td><td>184</td><td>بتفصل في الخلافات وبتصدر الأحكام</td></tr>
           </table>
         </div>
         <div class="tip">
@@ -820,55 +838,79 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
       <!-- السيادة -->
       <div class="card reveal">
         <h3><span class="card-icon">👑</span>4. السيادة</h3>
-        <p>استقلال الدولة في اتخاذ قراراتها فيما يتعلق بشئونها الداخلية والخارجية دون خضوع لسلطة خارجية.</p>
+        <p>إن الدولة تاخد قرارها لوحدها من غير ما حد يقولها "لأ" من برة.</p>
         <div class="grid grid-2" style="margin-top:1rem;gap:.8rem">
           <div class="definition" style="margin:0">
-            <strong>الداخلية:</strong>
+            <strong>جوة البلد (داخلية):</strong>
             <ul style="margin-top:.3rem;font-size:.92rem">
-              <li>سن القوانين</li>
-              <li>حفظ الأمن</li>
-              <li>إدارة شئون المواطنين</li>
+              <li>بتسن قوانينها</li>
+              <li>بتحفظ أمنها</li>
+              <li>بتدير شؤون مواطنيها</li>
             </ul>
           </div>
           <div class="definition" style="margin:0">
-            <strong>الخارجية:</strong>
+            <strong>برة البلد (خارجية):</strong>
             <ul style="margin-top:.3rem;font-size:.92rem">
-              <li>إبرام المعاهدات</li>
-              <li>العلاقات الدبلوماسية</li>
-              <li>التمثيل الدولي</li>
+              <li>بتعمل معاهدات</li>
+              <li>بتقيم علاقات دبلوماسية</li>
+              <li>بتمثل نفسها دوليًا</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="joke-box reveal">
+      <p>يعني لما تسمع إن دولة "مستقلة" وبتاخد قراراتها بنفسها، يبقى عندها سيادة. لو حد بيملي عليها، تبقى زي اللي بيسأل بابا قبل ما يخرج مع صحابه 😂</p>
+    </div>
   </div>
 </section>
 
-<!-- ========== الحيز الجغرافي بالتفصيل ========== -->
+<!-- ========== الحيز الجغرافي ========== -->
 <section class="section papyrus-bg" id="geography">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">الحيز الجغرافي بالتفصيل</h2>
-      <p class="section-subtitle">حدود مصر... خطوط على الخريطة أم رمز للسيادة؟</p>
+      <h2 class="section-title">الحدود... حيطة البيت</h2>
+      <p class="section-subtitle">أرقام لو حفظتها مش هتنسى، عشان كده هنقفل عليها بالشلوط</p>
     </div>
 
     <div class="stat-row reveal">
-      <div class="stat"><div class="num">22°</div><div class="label">دائرة عرض جنوبًا</div></div>
-      <div class="stat"><div class="num">25°</div><div class="label">خط طول غربًا</div></div>
-      <div class="stat"><div class="num">12</div><div class="label">ميل بحري مياه إقليمية</div></div>
-      <div class="stat"><div class="num">1906</div><div class="label">حدود مصر وفلسطين</div></div>
+      <div class="stat"><div class="num">22°</div><div class="label">دايرة عرض جنوب</div></div>
+      <div class="stat"><div class="num">25°</div><div class="label">خط طول غرب</div></div>
+      <div class="stat"><div class="num">12</div><div class="label">ميل مياه إقليمية</div></div>
+      <div class="stat"><div class="num">1906</div><div class="label">حدودنا مع فلسطين</div></div>
+    </div>
+
+    <div class="dialogue reveal" data-dir="left">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب يعني إيه حيز جغرافي يا عمنا؟ الأرض اللي إحنا قاعدين عليها وخلاص؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal" data-dir="right">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>لأ يا حبيبي، الحيز الجغرافي مش بس الأرض. ده كمان المياه والهوا اللي فوقينا. عشان كده لو طيارة أجنبية عايزة تدخل مجالنا الجوي، لازم تاخد تصريح من الدولة، وإلا تبقى بتتطاول علينا.</p>
+      </div>
     </div>
 
     <div class="card reveal">
-      <h3><span class="card-icon">🌊</span>أهمية الحيز الجغرافي</h3>
-      <p>الحيز الجغرافي ليس مجرد أرض، بل هو كيان متكامل تمارس فيه الدولة سلطتها وتحمي مصالحها:</p>
+      <h3><span class="card-icon">🌊</span>ليه الحيز الجغرافي مهم؟</h3>
+      <p>مش مجرد خريطة على الحيطة، ده كيان كامل الدولة بتمارس فيه سلطتها وبتحمي مصالحها:</p>
       <ul>
-        <li><strong>مثال 1:</strong> لا يُسمح لأي طائرة بدخول المجال الجوي المصري دون تصريح رسمي — دليل على السيادة الجوية.</li>
-        <li><strong>مثال 2:</strong> الدولة مسؤولة عن حماية قناة السويس ومراقبة السفن العابرة — دليل على السيادة على الممرات المائية.</li>
+        <li><strong>مثال 1:</strong> لو طيارة دخلت المجال الجوي من غير تصريح، دي بتبقى اعتداء على السيادة الجوية.</li>
+        <li><strong>مثال 2:</strong> الدولة بتحمي قناة السويس وبتراقب السفن العابرة، وده دليل على السيادة على الممرات المائية.</li>
       </ul>
       <div class="definition">
-        <strong>قاعدة ذهبية:</strong> لا تقوم دولة من دون وجود حدود محددة ومعترف بها.
+        <strong>قاعدة ذهبية:</strong> مفيش دولة من غير حدود محددة ومعترف بيها. حتى لو جيرانك مش طايقينك، لازم يعترفوا بحدودك.
       </div>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>لو حد سألك في الامتحان "إيه أهم حاجة في الحيز الجغرافي؟" اكتب: "إنه هويتنا وأرضنا ومياهنا وهوائنا". ولو حد قلك "إيه رأيك؟" قوله "رأيي إن اللي يمد إيده على أرضنا نعضه" 😂</p>
     </div>
   </div>
 </section>
@@ -877,19 +919,19 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="power" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">السلطة في الدولة المصرية</h2>
-      <p class="section-subtitle">ثلاث سلطات... تكامل لا تصادم</p>
+      <h2 class="section-title">السلطة... مين اللي بياخد القرار؟</h2>
+      <p class="section-subtitle">تلات سلطات بتكمل بعضها... زي فريق كورة</p>
     </div>
 
     <div class="grid grid-3">
       <div class="card reveal">
         <h3><span class="card-icon">📜</span>التشريعية</h3>
-        <p><strong>المادة 101:</strong> مجلس النواب يتولى:</p>
+        <p><strong>المادة 101:</strong> مجلس النواب هو اللي:</p>
         <ul>
-          <li>سن القوانين</li>
-          <li>إقرار السياسة العامة</li>
-          <li>الموازنة العامة</li>
-          <li>الرقابة على السلطة التنفيذية</li>
+          <li>بيسن القوانين</li>
+          <li>بيقر السياسة العامة</li>
+          <li>بيوافق على الموازنة</li>
+          <li>بيراقب السلطة التنفيذية</li>
         </ul>
       </div>
       <div class="card reveal">
@@ -898,7 +940,7 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
         <ul>
           <li>رئيس الجمهورية: رئيس الدولة ورئيس السلطة التنفيذية</li>
           <li>الحكومة: رئيس الوزراء والوزراء</li>
-          <li>تنفيذ القوانين وإدارة شئون الدولة</li>
+          <li>بتنفذ القوانين وبتدير شؤون الدولة</li>
         </ul>
       </div>
       <div class="card reveal">
@@ -906,19 +948,36 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
         <p><strong>المادة 184:</strong></p>
         <ul>
           <li>مستقلة</li>
-          <li>تتولاها المحاكم</li>
-          <li>تصدر الأحكام وفق القانون</li>
+          <li>بتتولاها المحاكم</li>
+          <li>بتصدر الأحكام وفق القانون</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="dialogue reveal" style="margin-top:2rem">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب يعني إيه "السلطات التلاتة" يا عمنا؟ يعني في تلات حكومة؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>لأ يا حبيبي، دي مش تلات حكومات، دي تلات وظايف. زي ما في فريق كورة: في واحد بيخطط (التشريعية)، وواحد بينفذ الخطة (التنفيذية)، وواحد بيحكم على الأخطاء (القضائية). لو الاتنين الأولانيين اتخانقوا، الحكم بيحل الخلاف.</p>
       </div>
     </div>
 
     <div class="tip reveal" style="margin-top:2rem">
       <p style="font-weight:700;text-align:center;font-size:1.1rem">
-        🔑 القاعدة الذهبية: استقرار الدولة مرتبط بقوة مؤسساتها وتنظيمها
+        🔑 القاعدة الذهبية: قوة الدولة في قوة مؤسساتها. ومحدش فوق القانون.
       </p>
-      <p style="text-align:center;margin-top:.5rem">
-        احترام مؤسسات الدولة والقانون واجب وطني على الجميع
-      </p>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>الناس بتفتكر إن السلطة معناها واحد بيحكم وخلاص. لأ يا صاحبي، السلطة مسؤولية. لو حاكم غلط، القضاء بيعدله. لو رئيس غلط، مجلس النواب بيراقبه. لو الشعب غلط... يبقى ربنا يستر 😂</p>
     </div>
   </div>
 </section>
@@ -927,19 +986,39 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="sovereignty">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">السيادة</h2>
-      <p class="section-subtitle">كيف تؤثر السيادة على قدرة الدولة في اتخاذ قراراتها؟</p>
+      <h2 class="section-title">السيادة... يعني إيه محدش يقولنا اعملوا إيه؟</h2>
+      <p class="section-subtitle">هي دي اللي بتخلي الدولة "راجل" مش "عيال يتحرك بأمر غيره"</p>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب يا عمنا، يعني إيه سيادة؟ وليه بنقول "مصر دولة ذات سيادة"؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>يعني باختصار: الدولة بتاخد قرارها لوحدها من غير ما حد يملي عليها. جوة البلد بتعمل اللي هي عايزاه في قوانينها وأمنها، وبرة البلد بتعمل معاهدات وعلاقات زي ما يريحها. لو حد حاول يفرض عليها حاجة، ترفض.</p>
+      </div>
     </div>
 
     <div class="grid grid-2">
       <div class="card reveal">
         <h3><span class="card-icon">🏛️</span>السيادة الداخلية</h3>
-        <p>حرية الدولة في سن القوانين، وحفظ الأمن، وإدارة شئون المواطنين من دون أي ضغوط خارجية.</p>
+        <p>الدولة بتحط قوانينها، بتحفظ أمنها، وبتدير شؤون مواطنيها من غير ضغط خارجي.</p>
       </div>
       <div class="card reveal">
         <h3><span class="card-icon">🌍</span>السيادة الخارجية</h3>
-        <p>استقلال الدولة في علاقاتها الدولية، وحرية إبرام المعاهدات، وإقامة العلاقات الدبلوماسية، وحماية المصالح الوطنية، والتمثيل في المنظمات الدولية.</p>
+        <p>الدولة بتعمل معاهدات، بتقيم علاقات دبلوماسية، بتحمي مصالحها، وبتمثل نفسها في المنظمات الدولية.</p>
       </div>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>مصر بتحب تقولك: "أنا حرة، محدش يوصي عليا". عشان كده جملال حمدان قال عليها "دولة نهر وموقعها برزخ" — يعني تبقى زراعية مستقرة وبرضه جسر بين القارات. زي اللي عنده بيت على الطريق السريع — عنده خصوصية وكمان كل الناس بتمر عليه 😂</p>
     </div>
   </div>
 </section>
@@ -948,60 +1027,66 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="components" style="background:linear-gradient(180deg,var(--papyrus-dark),var(--papyrus))">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">مقومات نشأة الدولة المصرية وعوامل استمرارها</h2>
-      <p class="section-subtitle">لماذا استمرت مصر بينما سقطت دول أخرى؟</p>
+      <h2 class="section-title">ليه مصر صمدت ودول تانية وقعت؟</h2>
+      <p class="section-subtitle">فيه 6 أسباب تخليها تستمر من آلاف السنين</p>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>يا عمنا، إحنا بنسمع إن مصر من أقدم الدول. يعني إيه اللي خلاها تستمر كل ده وهي اللي حوالينها وقعت؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>أيوه يا حبيبي، مصر عندها 6 حاجات كده بتخليها "قوية" و"ثابتة". تعال أقولك عليهم واحد واحد.</p>
+      </div>
     </div>
 
     <div class="grid grid-2">
       <div class="card reveal">
-        <h3><span class="card-icon">🌍</span>1. الموقع الجغرافي والحدود الطبيعية</h3>
-        <p>وقوع مصر في قلب قارات العالم القديم جعلها مركزًا للتواصل الحضاري والتبادل التجاري.</p>
-        <p style="margin-top:.8rem">تتمتع بحدود طبيعية (الوادي والدلتا) ساعدت في حمايتها.</p>
+        <h3><span class="card-icon">🌍</span>1. الموقع والحدود</h3>
+        <p>مصر قاعدة في قلب قارات العالم القديم (آسيا وأفريقيا وأوروبا)، وده خلاها نقطة التقاء حضارات. عندها كمان حدود طبيعية (الوادي والدلتا) بتحميها.</p>
         <div class="definition">
-          <strong>مقولة جمال حمدان:</strong> "مصر دولة نهر، وموقعًا دولة برزخ" — النيل جعلها دولة زراعية مستقرة، والموقع جعلها جسرًا بين القارات.
+          <strong>جمال حمدان بيقول:</strong> "مصر دولة نهر وموقعها دولة برزخ" — النيل خلاها زراعية مستقرة، والموقع خلاها جسر بين القارات.
         </div>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">💧</span>2. الموارد الطبيعية</h3>
-        <p>نهر النيل أهم مورد طبيعي في مصر، وهو عامل أساسي لنشأة الدولة وحضارتها.</p>
-        <p style="margin-top:.8rem">بسببه تحول المصري من "جامع ثمار" إلى "مزارع مستقر".</p>
+        <h3><span class="card-icon">💧</span>2. نهر النيل</h3>
+        <p>النيل هو أهم حاجة في مصر. بسببه المصري القديم تحول من "واحد بيلم ثمار" لواحد "مزارع مستقر". وهو اللي خلق فكرة الحكومة المركزية أصلاً عشان ينظم المية.</p>
         <ul>
-          <li>الأراضي الخصبة</li>
-          <li>المعادن</li>
-          <li>أحجار البناء</li>
+          <li>أراضي خصبة</li>
+          <li>معادن</li>
+          <li>أحجار بناء</li>
         </ul>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🤝</span>3. التجانس البشري والوحدة الوطنية</h3>
-        <p>مصر من أكثر دول العالم تجانسًا؛ انصهر سكانها في بوتقة ثقافية واحدة منذ فجر التاريخ.</p>
-        <p style="margin-top:.8rem">لم يتأثر المصريون بثقافة المحتل بل حافظوا على هويتهم المصرية.</p>
+        <h3><span class="card-icon">🤝</span>3. التجانس البشري</h3>
+        <p>مصر من أكثر الدول اللي شعبها متجانس. المصريين انصهروا في بوتقة واحدة من قديم. ولو دخل عليهم محتل، بيأثرش عليهم، بالمقلوب هو اللي بيتأثر بيهم.</p>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🏛️</span>4. الحكومة المركزية القوية</h3>
-        <p>قيام حكومة مركزية قوية بعد توحيد القطرين على يد الملك مينا (نعرمر) هو الأساس الحقيقي لظهور الدولة المصرية.</p>
-        <p style="margin-top:.8rem">تحولت من تجمعات صغيرة إلى دولة منظمة ذات سلطة واحدة ونظام إداري موحد.</p>
+        <h3><span class="card-icon">🏛️</span>4. الحكومة المركزية</h3>
+        <p>لما الملك مينا (نعرمر) وحّد القطرين، أسس حكومة مركزية قوية. وده الفرق بين "تجمعات صغيرة" و"دولة منظمة". يعني من "قرى متفرقة" لـ"دولة واحدة".</p>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🛡️</span>5. القوة العسكرية</h3>
-        <p>جيش من أبناء مصر يدافع عن أرضها.</p>
+        <h3><span class="card-icon">🛡️</span>5. الجيش</h3>
+        <p>جيش من أبناء مصر. مهمته مش يحتل حد، مهمته يبني ويحمي ويحافظ على الأرض. وعقيدته: "مش بنعتدي، بس منسمحش لحد يعتدي".</p>
         <div class="definition">
-          <strong>عقيدة الجيش المصري:</strong> "يبني ويحمي ويحافظ على الأرض ولا يعتدي"
+          <strong>عقيدة الجيش المصري:</strong> يبني ويحمي ويحافظ على الأرض ولا يعتدي.
         </div>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🏺</span>6. الحفاظ على الهوية المصرية</h3>
-        <p>حافظ المصريون على هويتهم الوطنية عبر العصور من خلال:</p>
-        <ul>
-          <li>التمسك باللغة والثقافة والتراث</li>
-          <li>حماية التراث الحضاري</li>
-          <li>تعريف الأجيال بتاريخ مصر</li>
-          <li>دعم الثقافة والفنون</li>
-        </ul>
+        <h3><span class="card-icon">🏺</span>6. الهوية المصرية</h3>
+        <p>المصريين حافظوا على لغتهم وثقافتهم وتراثهم عبر العصور. وده اللي خلا مصر تفضل مصر مهما حصل. الحكومة دلوقتي بتحمي التراث وبتعرّف الأجيال بتاريخها.</p>
       </div>
     </div>
 
@@ -1011,6 +1096,10 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
         م<small>وقع</small> — و<small>موارد</small> — ت<small>جانس</small> — ح<small>كومة</small> — ق<small>وة عسكرية</small> — هـ<small>وية</small>
       </p>
     </div>
+
+    <div class="joke-box reveal">
+      <p>يعني مصر زي اللي عنده: بيت في نص البلد (موقع)، وبيت بيصب عليه مية من كل حتة (النيل)، وأهل بيسندوا بعض (تجانس)، وحاكم شغال (حكومة)، وجيش صاحي (قوة عسكرية)، وهو نفسه فخور بأصله (هوية). مش ممكن حد يوقعه بسهولة 😂</p>
+    </div>
   </div>
 </section>
 
@@ -1018,27 +1107,43 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="hyksos" style="background:linear-gradient(180deg,#2c1810,#3b2412);color:var(--sand)">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title" style="color:var(--gold-bright)">غزو الهكسوس لمصر</h2>
-      <p class="section-subtitle" style="color:var(--sand)">أول احتلال أجنبي لمصر... وكيف تحولت الأزمة إلى نقطة انطلاق؟</p>
+      <h2 class="section-title" style="color:var(--gold-bright)">الهكسوس... أول ناس دخلت البلد غصب</h2>
+      <p class="section-subtitle" style="color:var(--sand)">أول احتلال لمصر، بس هو اللي علّم المصريين يعني إيه جيش قوي</p>
     </div>
 
     <div class="dialogue reveal">
       <div class="avatar pharaoh">👑</div>
       <div class="bubble">
-        <div class="name">المعلم</div>
-        <p>مع نهاية عصر الدولة الوسطى، ضعفت السلطة المركزية، وأصبحت غير قادرة على حماية حدودها الشمالية الشرقية. في ظل هذه الاضطرابات، تمكن الهكسوس من التسلل إلى دلتا النيل.</p>
+        <div class="name">المعلم الفاجر</div>
+        <p>تعال بقى أحكيلك حكاية أول احتلال يا حبيبي. في آخر عصر الدولة الوسطى، السلطة المركزية ضعفت ومبقتش قادرة تحمي حدودها الشمالية الشرقية. فالفرصة بقت سانحة للهكسوس إنهم يتسللوا من الدلتا.</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>مين الهكسوس دول يا عمنا؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>قبائل آسيوية جايين من الشرق. استغلوا ضعف مصر، سيطروا على شمال البلد (الدلتا)، وعملوا عاصمتهم اسمها أواريس. تخيل بقى: حد يخش بيتك، يقعد في الصالة، ويقولك أنا صاحب البيت الجديد! 😠</p>
       </div>
     </div>
 
     <div class="grid grid-2" style="margin-top:2rem">
       <div class="card reveal" style="background:rgba(244,228,193,.95)">
-        <h3><span class="card-icon">⚔️</span>عوامل نجاح الهكسوس</h3>
+        <h3><span class="card-icon">⚔️</span>ليه الهكسوس نجحوا؟</h3>
         <ul>
-          <li><strong>ضعف السلطة المركزية</strong> في نهاية الدولة الوسطى</li>
-          <li><strong>عجز الدولة</strong> عن حماية حدودها الشمالية الشرقية</li>
-          <li><strong>تفوق الهكسوس عسكريًا</strong> (أسلحة متطورة + قدرة على الحركة والمناورة)</li>
-          <li><strong>اختيارهم الدلتا</strong> (أخصب وأقرب مناطق الاتصال بطرق التجارة)</li>
-          <li><strong>اتخاذهم أواريس</strong> عاصمة سياسية وعسكرية</li>
+          <li><strong>ضعف السلطة المركزية</strong> في آخر الدولة الوسطى</li>
+          <li><strong>عجز الدولة</strong> عن حماية الحدود الشمالية الشرقية</li>
+          <li><strong>تفوقهم العسكري</strong> (أسلحة متطورة + عربيات حربية بتجري)</li>
+          <li><strong>اختاروا الدلتا</strong> لأنها أخصب وأقرب لمناطق التجارة</li>
+          <li><strong>عاصمتهم أواريس</strong> بقت مركزهم</li>
         </ul>
         <div class="tip">
           <code>ض ع ت ا</code>
@@ -1047,38 +1152,54 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
       </div>
 
       <div class="card reveal" style="background:rgba(244,228,193,.95)">
-        <h3><span class="card-icon">👑</span>لماذا الدلتا تحديدًا؟</h3>
-        <p>مثلت الدلتا:</p>
+        <h3><span class="card-icon">👑</span>ليه الدلتا بالتحديد؟</h3>
+        <p>عشان الدلتا كانت:</p>
         <ul>
-          <li>النطاق الاقتصادي الأخصب في مصر</li>
-          <li>أقرب مناطق الاتصال بطرق التجارة القادمة من آسيا</li>
-          <li>السيطرة عليها = التحكم في جزء كبير من الموارد الاقتصادية</li>
+          <li>أخصب أرض زراعية</li>
+          <li>أقرب حتة لطرق التجارة اللي جاية من آسيا</li>
+          <li>السيطرة عليها = التحكم في اقتصاد البلد كله</li>
         </ul>
+        <p style="margin-top:.8rem">يعني زي اللي ياخد المخبز في الحتة، تبقى الناس كلها محتاجاه 😂</p>
       </div>
     </div>
 
-    <!-- الخط الزمني -->
     <div class="title-wrap reveal" style="margin-top:4rem">
-      <h3 style="font-family:'Amiri',serif;font-size:2rem;color:var(--gold-bright)">مراحل طرد الهكسوس</h3>
+      <h3 style="font-family:'Amiri',serif;font-size:2rem;color:var(--gold-bright)">حكاية طرد الهكسوس... س ك أ</h3>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب إحنا سكتنا كده؟ مش معقول المصريين يسبوهم!</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>طبعًا لأ! المصريين قالوا: "كده بضان، لازم نتحرك". وده اللي حصل في 3 مراحل: <strong>سقنن رع</strong> بدأ التحدي، بعدين <strong>كامس</strong> رتب وحضّر وقطع الإمدادات، وأخيراً <strong>أحمس</strong> حسم ونصر. عشان كده بنسميهم "س ك أ".</p>
+      </div>
     </div>
 
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-card" style="background:rgba(244,228,193,.95)">
-          <h4>المرحلة الأولى: التحدي والمواجهة</h4>
-          <p style="color:var(--brown-light);font-size:.95rem"><strong>سقنن رع</strong> — تولى قيادة طيبة، وبدأ في توسيع نفوذه حتى أبيدوس، وبدأ دفع الهكسوس شمالًا. قُتل في المعركة لكن شرارة المقاومة لم تنطفئ.</p>
+          <h4>المرحلة الأولى: سقنن رع — التحدي</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>سقنن رع</strong> كان أمير طيبة، بدأ يوسع نفوذه لحد أبيدوس، وبدأ يدفع الهكسوس ناحية الشمال. قُتل في المعركة، بس شرارة المقاومة ولعتها. زي اللي يقولك "أنا مش هرجع في كلمتي" وخلاص.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-card" style="background:rgba(244,228,193,.95)">
-          <h4>المرحلة الثانية: المقاومة والتخطيط</h4>
-          <p style="color:var(--brown-light);font-size:.95rem"><strong>كامس</strong> — أعاد تنظيم الجيش بروحهجومية وحضارية، وانتصر في مصر الوسطى، ثم قطع طرق الإمداد من كوش لعزل الهكسوس، وتوجه شمالًا لكنه توفي قبل المعركة الحاسمة.</p>
+          <h4>المرحلة الثانية: كامس — التخطيط</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>كامس</strong> طلع أذكى من والده. قالك "مش هقف أضرب فيهم وأنسى الإمدادات"، فعمل خطة عسكرية بتقطع طرق الإمداد اللي جاية من كوش. عزل الهكسوس. انتصر في مصر الوسطى. بس مات قبل المعركة الحاسمة. زي لاعب كورة بيسجل 2 ويموت قبل الماتش يخلص.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-card" style="background:rgba(244,228,193,.95)">
-          <h4>المرحلة الثالثة: الحسم والنصر</h4>
-          <p style="color:var(--brown-light);font-size:.95rem"><strong>أحمس الأول</strong> — حاصر الهكسوس في أواريس، وطاردهم خارج مصر، وأخضع حكام الأقاليم، وأسس أول إمبراطورية في التاريخ المصري القديم.</p>
+          <h4>المرحلة الثالثة: أحمس — الحسم</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>أحمس</strong> أخو كامس قعد على العرش وقرر يخلص الموضوع. حاصر الهكسوس في أواريس، طاردهم خارج مصر، وأخضع حكام الأقاليم، وأسس أول إمبراطورية في التاريخ المصري. الراجل ده عمل حاجة مفيش حد قبل كده عملها!</p>
         </div>
       </div>
     </div>
@@ -1089,23 +1210,27 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
     </div>
 
     <div class="card reveal" style="margin-top:3rem">
-      <h3><span class="card-icon">👸</span>دور الملكة إياح حتب</h3>
-      <p>زوجة سقنن رع وأم كامس وأحمس. جمعت جيشها، وحمت الناس، وأعادت الهاربين، ولمّت شتات المهاجرين، وهدّأت ما حل بالصعيد من خوف. سجل أحمس إنجازاتها على لوحة الكرنك.</p>
+      <h3><span class="card-icon">👸</span>الملكة إياح حتب... الست اللي كانت معاهم في الخندق</h3>
+      <p>زوجة سقنن رع وأم كامس وأحمس. لما جوزها مات، مضيعتش وقت. جمعت جيشها، حمَت الناس، أعادت الهاربين، جمّعت اللي مشتت، وحافظت على الصعيد. أحمس ابنها سجلها لوحة على الكرنك. دي الست اللي نقول عليها "بنت جدعة" 😎</p>
     </div>
 
     <div class="grid grid-3 reveal" style="margin-top:2rem">
       <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
         <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🛡️</span>تطوير الجيش</h3>
-        <p style="color:var(--sand)">استخدم المصريون العجلات الحربية وحسّنوا الأسلحة بعد التعرف عليها من الهكسوس.</p>
+        <p style="color:var(--sand)">المصريين أخدوا العجلات الحربية من الهكسوس وطوّروها وحسنوها. يعني حتى من عدوك تقدر تتعلم.</p>
       </div>
       <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
         <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🏛️</span>تأمين الحدود</h3>
-        <p style="color:var(--sand)">بناء أول إمبراطورية مصرية وتأمين الحدود الشمالية والشرقية.</p>
+        <p style="color:var(--sand)">بعد الطرد، المصريين بنوا أول إمبراطورية وأمّنوا الحدود عشان محدش يفكر يكرر الموضوع.</p>
       </div>
       <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
         <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🤝</span>الوحدة الوطنية</h3>
-        <p style="color:var(--sand)">الوحدة هي السبيل الوحيد للتحرر من الاحتلال.</p>
+        <p style="color:var(--sand)">الوحدة هي السبيل الوحيد للتحرر. من غيرها إحنا بنبقى فرائس.</p>
       </div>
+    </div>
+
+    <div class="joke-box reveal" style="background:rgba(255,107,53,.15);border-color:var(--fun)">
+      <p>الدرس المستفاد من الهكسوس: "اللي ينام على ضعفه، غيره هياخد مكانه". فخلي بالك من حالك يا صاحبي 😂</p>
     </div>
   </div>
 </section>
@@ -1114,41 +1239,61 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="persians">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">الغزو الفارسي لمصر</h2>
-      <p class="section-subtitle">525 ق.م — سقوط مصر في يد الإمبراطورية الفارسية</p>
+      <h2 class="section-title">الفرس... لما جاء حد تاني وقال "أنا عايز مصر"</h2>
+      <p class="section-subtitle">525 ق.م — الفرس دخلوا البلد وأخدوا الحكم غصب</p>
     </div>
 
     <div class="dialogue reveal">
       <div class="avatar student">🧑‍🎓</div>
       <div class="bubble">
-        <div class="name">الطالب</div>
-        <p>هل كان سقوط مصر نتيجة قوة الفرس فقط؟</p>
+        <div class="name">التلميذ البضان</div>
+        <p>يا عمنا، يعني إيه "قمبيز"؟ ده اسم أكل ولا اسم ملك؟</p>
       </div>
     </div>
 
     <div class="dialogue reveal">
       <div class="avatar pharaoh">👑</div>
       <div class="bubble">
-        <div class="name">المعلم</div>
-        <p>لا. كان سقوط مصر نتيجة <strong>تفاعل</strong> بين الضعف الداخلي والطموح الفارسي. في العصر المتأخر كانت مصر تمر بحالة من الاضطراب السياسي والصراع الداخلي، وأصبحت هدفًا للأطماع الخارجية خاصة الإمبراطورية الفارسية.</p>
+        <div class="name">المعلم الفاجر</div>
+        <p>هههه لأ يا حبيبي، قمبيز ده ملك فارسي، ابن قورش. جه بمصر سنة 525 ق.م، قابل الجيش المصري في شرق الدلتا، كسب المعركة، ودخل مصر وأسس الأسرة السابعة والعشرين. يعني خلاص، مصر بقت ولاية فارسية.</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب إحنا سكتنا؟ مش معقول!</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>طبعاً لأ! المصريين عملوا ثورات ومقاومة. رفضوا الاحتلال الفارسي وطلعوا حركات مقاومة للاستقلال. المصريين بطبعهم مبيحبوش حد يتحكم فيهم. ده حتى في الأمثال: "مصر مش بتتحكم، مصر بتحكم".</p>
       </div>
     </div>
 
     <div class="grid grid-2" style="margin-top:2rem">
       <div class="card reveal">
-        <h3><span class="card-icon">⚔️</span>الأحداث</h3>
+        <h3><span class="card-icon">⚔️</span>الأحداث بالأرقام</h3>
         <ul>
-          <li>عام <strong>525 ق.م</strong>: التقى الجيشان المصري والفارسي في شرق الدلتا</li>
-          <li>قيادة الملك الفارسي <strong>قمبيز الثاني</strong></li>
-          <li>هزيمة المصريين ودخول الفرس لمصر</li>
-          <li>تأسيس الأسرة السابعة والعشرين</li>
+          <li>سنة <strong>525 ق.م</strong>: معركة شرق الدلتا</li>
+          <li>الملك الفارسي <strong>قمبيز الثاني</strong> قاد الحملة</li>
+          <li>هزيمة المصريين + دخول الفرس</li>
+          <li>تأسيس <strong>الأسرة السابعة والعشرين</strong></li>
         </ul>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🔥</span>المقاومة المصرية</h3>
-        <p>رفض الشعب المصري الاحتلال الفارسي، وظهرت حركات مقاومة وثورات للاستقلال الوطني، مما عكس تمسك المصريين بهويتهم ورفضهم للسيطرة الأجنبية.</p>
+        <h3><span class="card-icon">🔥</span>المقاومة الشعبية</h3>
+        <p>الشعب المصري رفض الاحتلال الفارسي وطلعوا ثورات ومقاومة شعبية. الفرس عملوا ضرائب تقيلة، والمصريين ردوا بالمقاومة. القصة دي بتثبت إن المصريين حتى لو انكسروا مؤقتًا، بيرجعوا يقفوا تاني.</p>
       </div>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>الفرس قالوا للمصريين: "احنا هنحكمكم". المصريين ردوا: "طيب بص، احنا هنقعد في بيتنا، بس مش هنسمع كلامك". النتيجة: الفرس مشيوا في الآخر. المصري عنيد يا صاحبي 😂</p>
     </div>
   </div>
 </section>
@@ -1157,38 +1302,70 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="alexander" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">غزو الإسكندر الأكبر لمصر</h2>
-      <p class="section-subtitle">332 ق.م — الدخول دون مقاومة... لماذا؟</p>
+      <h2 class="section-title">الإسكندر الأكبر... اللي دخل مصر من غير ما يضرب طلقة</h2>
+      <p class="section-subtitle">332 ق.م — لأن المصريين شافوه "بيخلصهم" من الفرس</p>
     </div>
 
-    <div class="card reveal">
-      <h3><span class="card-icon">🏛️</span>السياق التاريخي</h3>
-      <p>عند وصول الإسكندر الأكبر إلى مصر عام 332 ق.م، كانت البلاد تعاني وطأة الحكم الفارسي والضرائب المثقلة على المصريين. هذا الوضع المناخي في مصر جعلها تقبل قوة خارجية قادرة على القضاء على الفرس.</p>
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>يا عمنا، يعني إيه "دخل مصر من غير مقاومة"؟ ده بجد ولا هزار؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>أيوه بجد! لما وصل مصر سنة 332 ق.م، كان الفرس محتلينها ومتعبين المصريين بالضرائب. المصريين قالوا: "الراجل ده ممكن يخلصنا". فدخل من غير مقاومة تذكر. زي اللي بيتفرج على ماتش، وفجأة فريق بيسجل هدف في الوقت القاتل، وكل الناس بتحبه من غير ما يطلب.</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>طب وبعدين؟ عمل إيه؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>عمل حاجتين: أولاً، قالهم "أنا ابن آمون" عشان يقنعهم إنه مش غريب. وتانيًا، احترم عاداتهم وتقاليدهم. وبعد كده أسس مدينة الإسكندرية عشان تبقى مركز تجاري وثقافي. الراجل ده كان ذكي بجد.</p>
+      </div>
     </div>
 
     <div class="grid grid-2" style="margin-top:2rem">
       <div class="card reveal">
-        <h3><span class="card-icon">👑</span>كيف ثبّت الإسكندر نفوذه؟</h3>
+        <h3><span class="card-icon">👑</span>إزاي ثبّت نفوذه؟</h3>
         <ul>
-          <li>حصل على اعتراف ديني بسلطته بادعائه أنه ابن الإله آمون</li>
-          <li>احترم عادات المصريين وتقاليدهم</li>
-          <li>أسس مدينة الإسكندرية لتصبح مركزًا تجاريًا وثقافيًا وعسكريًا</li>
+          <li>قال إنه ابن الإله آمون (حيلة دعاية)</li>
+          <li>احترم العادات والتقاليد المصرية</li>
+          <li>أسس مدينة الإسكندرية</li>
+          <li>حافظ على الجيش والجيرة العسكرية</li>
         </ul>
       </div>
 
       <div class="card reveal">
         <h3><span class="card-icon">🤔</span>رأيان متعارضان</h3>
         <div class="definition" style="margin:0 0 .8rem 0">
-          <strong>الرأي الأول:</strong> المصريون اعتبروه مُحررًا من الفرس، وعمل على احترام تقاليدهم الدينية.
+          <strong>الرأي الأول:</strong> المصريون شافوه مُحرر من الفرس، فاستقبلوه بحفاوة واحترم تقاليدهم الدينية.
         </div>
         <div class="definition" style="margin:0">
-          <strong>الرأي الثاني:</strong> استقبلوه بحذر، وشارك الكهنة ورجال الحكم والإدارة في نيته، مستخدمًا توازنًا بين القوة العسكرية والسياسة لسكب ثقة السكان.
+          <strong>الرأي الثاني:</strong> المصريون استقبلوه بحذر، وشارك الكهنة ورجال الحكم في نيته، مستخدمًا توازنًا بين القوة العسكرية والسياسة لكسب ثقة السكان.
         </div>
       </div>
     </div>
 
     <div class="tip reveal" style="margin-top:2rem">
-      <p style="font-weight:700;text-align:center">🔑 الدرس المستفاد: قد يُظهر لك عدوك التودد والمحبة، لكنه سيبقى عدوًا يريد القضاء على هويتك.</p>
+      <p style="font-weight:700;text-align:center">🔑 الدرس: حتى لو حد جه بالطيبة، اسأل نفسه الأول: "إيه مصلحته الحقيقية؟"</p>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>الإسكندر ده كان شغال بنظرية "اسمك مش مهم، اللي بيدخل من غير ما يضرب هو اللي بيكسب". وده اللي عمله فعلاً. بس المصريين بعد كده فهموا اللعبة... زي ما هنشوف.</p>
     </div>
   </div>
 </section>
@@ -1197,48 +1374,71 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="section papyrus-bg" id="romans">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">البطالمة والرومان</h2>
-      <p class="section-subtitle">من دولة البطالمة إلى الولاية الرومانية</p>
+      <h2 class="section-title">البطالمة والرومان... مصر في إيد الغرباء</h2>
+      <p class="section-subtitle">من 323 ق.م لحد ما بقيت ولاية رومانية</p>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">التلميذ البضان</div>
+        <p>يعني إيه "البطالمة" يا عمنا؟ ده نوع أكل تاني؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم الفاجر</div>
+        <p>هههه لأ يا صاحبي، البطالمة دول ناس. بعد ما الإسكندر مات سنة 323 ق.م، حصل خلاف بين قادة جيشه على مين يحكم إيه. وفي خضم الخلاف، ظهر القائد <strong>بطلميوس بن لاجوس</strong>، سيطر على مصر، وعملها قاعدة لحكمه. وده كان بداية دولة البطالمة.</p>
+      </div>
     </div>
 
     <div class="grid grid-2">
       <div class="card reveal">
         <h3><span class="card-icon">👑</span>دولة البطالمة (323 ق.م)</h3>
-        <p>بعد وفاة الإسكندر الأكبر، واجهت إمبراطوريته أزمة كبرى؛ دخل قادة جيشه في صراع ممتد بينهم من أجل فرض سيطرتهم على أكبر قدر من الأراضي.</p>
-        <p style="margin-top:.8rem">برزت شخصية القائد <strong>بطلميوس بن لاجوس</strong> الذي فرض سيطرته على مصر وجعلها قاعدة لحكمه.</p>
+        <p>بعد موت الإسكندر، الإمبراطورية اتقسمت بين قواده. بطلميوس أخد مصر، وبدأت فترة جديدة في تاريخ مصر. بس مع الوقت، البطالمة دخلوا في صراعات داخلية وضعفوا.</p>
       </div>
 
       <div class="card reveal">
-        <h3><span class="card-icon">🦅</span>مصر تحت حكم الرومان</h3>
-        <p>مثّلت مصر بالنسبة للرومان مركزًا اقتصاديًا واستراتيجيًا مهمًا؛ خاصة أنها أحد أهم مصادر الحبوب في العالم القديم، وموقعها الجغرافي منحها القدرة على التحكم في طرق التجارة بين الشرق والغرب.</p>
-        <p style="margin-top:.8rem">بعد معركة <strong>أكتيوم البحرية</strong> وهزيمة كليوباترا السابعة، سيطر أكتافيوس على مصر لتصبح ولاية رومانية.</p>
+        <h3><span class="card-icon">🦅</span>مصر في إيد الرومان</h3>
+        <p>مصر كانت مهمة جدًا للرومان؛ لأنها:</p>
+        <ul>
+          <li>أحد أهم مصادر الحبوب في العالم القديم</li>
+          <li>موقعها بيسمح بالتحكم في طرق التجارة بين الشرق والغرب</li>
+        </ul>
+        <p style="margin-top:.8rem">بعد معركة <strong>أكتيوم البحرية</strong> وهزيمة كليوباترا السابعة، أكتافيوس سيطر على مصر وبقت ولاية رومانية.</p>
       </div>
     </div>
 
     <div class="card reveal" style="margin-top:2rem">
-      <h3><span class="card-icon">⚖️</span>الإدارة الرومانية</h3>
-      <p>كانت مصر تُدار بواسطة حاكم روماني يعيّنه الإمبراطور مباشرة، ويخضع له وحده، ولا يجوز لأي عضو من مجلس الشيوخ الروماني دخولها إلا بإذن خاص من الإمبراطور؛ <strong>لما لمصر من أهمية استراتيجية واقتصادية كبرى</strong>.</p>
+      <h3><span class="card-icon">⚖️</span>الحكم الروماني... حكم بقبضة من حديد</h3>
+      <p>كانت مصر بتتدار بواسطة حاكم روماني، الإمبراطور بيعينه مباشرة، ومحدش يقدر يدخل مصر من غير إذن خاص من الإمبراطور. ليه؟ لأن مصر كانت "الكنز" بتاع روما، ومينفعش حد يقربلها.</p>
     </div>
 
     <div class="card reveal" style="margin-top:2rem">
-      <h3><span class="card-icon">🔥</span>المقاومة المصرية للحكم الروماني</h3>
-      <p>زاد اضطهاد الرومان للمصريين بعد اعتناقهم المسيحية؛ حيث تعرضوا للتعذيب والسجن والقتل، وهُدمت كنائسهم وأُحرقت الكتب الدينية. بلغ الاضطهاد ذروته في عهد الإمبراطور دقلديانوس، حتى عُرف هذا العصر في مصر باسم <strong>"عصر الشهداء"</strong>.</p>
-      <p style="margin-top:.8rem">انتهى هذا الاضطهاد بعد اعتراف الإمبراطور سقطنطين بالمسيحية وإعلانه سياسة التسامح الديني.</p>
+      <h3><span class="card-icon">🔥</span>المقاومة المصرية... عصر الشهداء</h3>
+      <p>الرومان ضيقوا على المصريين، وخصوصًا بعد ما المصريين دخلوا المسيحية. عذّبوهم، سجنوهم، قتلوهم، هدّوا كنائسهم، وحرقوا كتبهم. ووصل الاضطهاد لأقصى درجة في عهد الإمبراطور <strong>دقلديانوس</strong>، حتى عُرف العصر ده في مصر بـ <strong>"عصر الشهداء"</strong>.</p>
+      <p style="margin-top:.8rem">كل ده انتهى بعد ما الإمبراطور <strong>سقطنطين</strong> اعترف بالمسيحية وأعلن التسامح الديني.</p>
     </div>
 
     <div class="grid grid-3 reveal" style="margin-top:2rem">
       <div class="card" style="background:linear-gradient(135deg,rgba(30,96,145,.15),rgba(30,96,145,.05));border-color:var(--nile)">
-        <h3 style="color:var(--nile-deep);font-size:1.2rem">⛪ تأثير المسيحية</h3>
+        <h3 style="color:var(--nile-deep);font-size:1.2rem">⛪ المسيحية</h3>
         <p>رسّخت قيم المحبة والتسامح، وظهرت الرهبنة، وازدهرت اللغة والفنون القبطية.</p>
       </div>
       <div class="card" style="background:linear-gradient(135deg,rgba(181,101,29,.15),rgba(181,101,29,.05));border-color:var(--terracotta)">
         <h3 style="color:var(--terracotta);font-size:1.2rem">🔥 الثورات</h3>
-        <p>بسبب الضرائب المفروضة، وحاول المصريون استعادة حكمهم للبلاد.</p>
+        <p>بسبب الضرائب والاضطهاد، المصريون ثاروا وحاولوا استعادة حكمهم.</p>
       </div>
       <div class="card" style="background:linear-gradient(135deg,rgba(201,162,39,.15),rgba(201,162,39,.05));border-color:var(--gold)">
         <h3 style="color:var(--gold-deep);font-size:1.2rem">🏺 الهوية</h3>
-        <p>رغم الخضوع للرومان، ظل المصريون متمسكين بهويتهم الوطنية ورافضين للسيطرة الأجنبية.</p>
+        <p>رغم الاحتلال، المصريون فضلوا متمسكين بهويتهم ورافضين السيطرة الأجنبية.</p>
       </div>
+    </div>
+
+    <div class="joke-box reveal">
+      <p>الرومان افتكروا إن مصر هتبقى سهلة زي الفرس. بس المصريين قالولهم: "احنا بنستحمل، بس مش بننسى". لحد ما جه الإسلام وفتح مصر سنة 641م، وبدأ فصل جديد خالص.</p>
     </div>
   </div>
 </section>
@@ -1247,21 +1447,22 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <section class="exam-section" id="exam">
   <div class="container">
     <div class="title-wrap reveal">
-      <h2 class="section-title">📝 امتحان شامل</h2>
-      <p class="section-subtitle">30 سؤالًا اختياريًا صعبًا — 25 دقيقة — تصحيح فوري</p>
+      <h2 class="section-title">📝 امتحان شامل يا معلم</h2>
+      <p class="section-subtitle">30 سؤال اختيار من متعدد — 25 دقيقة — تصحيح فوري مع شرح كل إجابة</p>
     </div>
 
     <div id="examIntro" class="card reveal" style="text-align:center;background:rgba(244,228,193,.95);color:var(--brown)">
-      <h3 style="justify-content:center"><span class="card-icon">📜</span>تعليمات الامتحان</h3>
+      <h3 style="justify-content:center"><span class="card-icon">📜</span>اقرأ التعليمات الأول يا نجم</h3>
       <ul style="display:inline-block;text-align:right;margin:1rem auto">
-        <li>عدد الأسئلة: <strong>30 سؤالًا</strong></li>
-        <li>المدة: <strong>25 دقيقة</strong></li>
+        <li>عدد الأسئلة: <strong>30 سؤال</strong></li>
+        <li>الوقت: <strong>25 دقيقة</strong> بس</li>
         <li>لكل سؤال إجابة واحدة صحيحة</li>
-        <li>يمكنك التنقل بين الأسئلة بحرية</li>
-        <li>عند انتهاء الوقت يتم التسليم تلقائيًا</li>
+        <li>تقدر تتنقل بين الأسئلة براحتك</li>
+        <li>لما الوقت يخلص، الامتحان بيتسلم لوحده</li>
+        <li>في الآخر هتشوف نتيجتك + شرح كل سؤال</li>
       </ul>
       <div style="margin-top:1.5rem">
-        <button class="btn btn-primary" onclick="startExam()">🚀 ابدأ الامتحان</button>
+        <button class="btn btn-primary" onclick="startExam()">🚀 يلا نبدأ بقى</button>
       </div>
     </div>
 
@@ -1284,8 +1485,8 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
       <div id="questionArea"></div>
 
       <div class="exam-controls">
-        <button class="btn btn-secondary" id="prevBtn" onclick="prevQ()">⬅ السابق</button>
-        <button class="btn btn-submit" id="submitBtn" onclick="submitExam()" style="display:none">✅ تسليم الامتحان</button>
+        <button class="btn btn-secondary" id="prevBtn" onclick="prevQ()">⬅ اللي فات</button>
+        <button class="btn btn-submit" id="submitBtn" onclick="submitExam()" style="display:none">✅ سلّم الامتحان</button>
         <button class="btn btn-primary" id="nextBtn" onclick="nextQ()">التالي ➡</button>
       </div>
     </div>
@@ -1297,12 +1498,12 @@ footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem
 <!-- ========== الفوتر ========== -->
 <footer>
   <p class="gold">𓂀 مصر عبر التاريخ 𓂀</p>
-  <p style="margin-top:.5rem">رحلة تفاعلية شاملة في أركان الدولة ومقاومة الاحتلال</p>
-  <p style="margin-top:.5rem;opacity:.7;font-size:.85rem">صُمم لأغراض تعليمية — الوحدة الأولى</p>
+  <p style="margin-top:.5rem">حكاية بلد مش بتنهزم بسهولة</p>
+  <p style="margin-top:.5rem;opacity:.7;font-size:.85rem">اتعمل بحب عشانك يا نجم 😎</p>
 </footer>
 
 <script>
-/* ========== الهيروغليفية الطائرة ========== */
+/* ========== الهيروغليفية الطايرة ========== */
 const glyphs = ['𓂀','𓃭','𓅓','𓆣','𓇳','𓈖','𓉐','𓊪','𓋹','𓌙','𓍿','𓎛','𓏏','𓐍','𓁹','𓃀','𓄿','𓅱','𓆑','𓇋'];
 const glyphContainer = document.getElementById('hieroglyphs');
 for(let i=0;i<20;i++){
@@ -1316,7 +1517,7 @@ for(let i=0;i<20;i++){
   glyphContainer.appendChild(g);
 }
 
-/* ========== Intersection Observer للحركات ========== */
+/* ========== Observer للحركات ========== */
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -1329,7 +1530,6 @@ document.querySelectorAll('.reveal, .dialogue, .tl-item').forEach(el=>{
   observer.observe(el);
 });
 
-/* ========== تفعيل روابط التنقل ========== */
 document.querySelectorAll('.nav a').forEach(a=>{
   a.addEventListener('click',function(){
     document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));
@@ -1338,189 +1538,189 @@ document.querySelectorAll('.nav a').forEach(a=>{
 });
 
 /* ============================================================
-   ================  الامتحان  ===============================
+   ============== الامتحان يا معلم =========================
    ============================================================ */
 
 const questions = [
   {
-    q: "ما الركن الذي يُعد المصدر الوحيد للسلطات في الدولة المصرية وفق الدستور؟",
-    options: ["الحيز الجغرافي","الشعب","السلطة","السيادة"],
+    q: "الشعب هو المصدر الوحيد للسلطات في مصر. المادة اللي بتقول كده رقم كام؟",
+    options: ["المادة الأولى","المادة الرابعة","المادة 101","المادة 184"],
     correct: 1,
-    expl: "المادة الرابعة من الدستور تنص على أن السيادة للشعب وحده، وهو مصدر السلطات."
+    expl: "المادة الرابعة من الدستور بتنص على إن السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات."
   },
   {
-    q: "«الدولة وحدة سياسية تشغل حيزًا جغرافيًا محددًا» — ما الذي يميز هذا التعريف؟",
-    options: ["يركز على الجانب العسكري فقط","يجمع بين العناصر المادية والمعنوية","يهمل فكرة السيادة تمامًا","يقصر الدولة على الأرض فقط"],
+    q: "«الدولة وحدة سياسية بتشغل حيز جغرافي محدد» — التعريف ده بيميزه إيه؟",
+    options: ["إنه بيركز على العسكرية بس","إنه بيجمع بين العناصر المادية والمعنوية","إنه بيهمل السيادة","إنه بيقصر الدولة على الأرض بس"],
     correct: 1,
-    expl: "التعريف الحديث يجمع بين العناصر المادية (الحيز) والمعنوية (السلطة والسيادة والشعب)."
+    expl: "التعريف الحديث بيجمع بين العناصر المادية (الحيز) والمعنوية (السلطة والسيادة والشعب)."
   },
   {
-    q: "لماذا يُعد الشعب الركن الأصيل في قيام الدولة؟",
-    options: ["لأنه الأكثر عددًا","لأنه مصدر السلطات وصاحب السيادة","لأنه يدفع الضرائب فقط","لأنه يدافع عن الحدود فقط"],
+    q: "ليه الشعب هو الركن الأصيل في قيام الدولة؟",
+    options: ["عشان الأكثر عددًا","عشان هو مصدر السلطات وصاحب السيادة","عشان بيدفع الضرائب بس","عشان بيدافع عن الحدود بس"],
     correct: 1,
-    expl: "الشعب هو مصدر السلطات وصاحب السيادة، ويشمل جميع المواطنين داخل الدولة أو خارجها."
+    expl: "الشعب هو مصدر السلطات وصاحب السيادة، وبيشمل كل المواطنين جوة الدولة أو برة."
   },
   {
-    q: "وفقًا للدستور المصري، السيادة تكون:",
+    q: "وفق الدستور المصري، السيادة بتكون لمين؟",
     options: ["للحكومة","للشعب وحده","للسلطة القضائية","لرئيس الجمهورية"],
     correct: 1,
     expl: "المادة الرابعة: السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات."
   },
   {
-    q: "أي مما يلي يُعد من مظاهر السيادة الداخلية وليس الخارجية؟",
-    options: ["إبرام المعاهدات","التمثيل في المنظمات الدولية","سن القوانين وحفظ الأمن","إقامة العلاقات الدبلوماسية"],
+    q: "إيه اللي يعتبر من مظاهر السيادة الداخلية مش الخارجية؟",
+    options: ["إبرام المعاهدات","التمثيل في المنظمات الدولية","سن القوانين وحفظ الأمن","إقامة علاقات دبلوماسية"],
     correct: 2,
-    expl: "السيادة الداخلية تشمل: سن القوانين، حفظ الأمن، إدارة شؤون المواطنين دون ضغوط خارجية."
+    expl: "السيادة الداخلية بتشمل: سن القوانين، حفظ الأمن، إدارة شؤون المواطنين من غير ضغوط خارجية."
   },
   {
-    q: "دائرة عرض 22 شمالًا تمثل حدود مصر:",
+    q: "دايرة عرض 22 شمالاً بتمثل حدود مصر:",
     options: ["الشمالية","الشرقية","الجنوبية","الغربية"],
     correct: 2,
-    expl: "دائرة عرض 22 شمالًا هي الحدود الجنوبية لمصر، وقد رُسمت عام 1899 للفصل عن السودان."
+    expl: "دايرة عرض 22 شمالاً هي الحدود الجنوبية لمصر، واتحددت سنة 1899 للفصل عن السودان."
   },
   {
-    q: "متى رُسم خط الحدود بين مصر وفلسطين؟",
+    q: "خط الحدود بين مصر وفلسطين اتحدد سنة كام؟",
     options: ["1899","1906","1925","1919"],
     correct: 1,
-    expl: "خط الحدود البرية بين مصر وفلسطين رُسم عام 1906."
+    expl: "خط الحدود البرية بين مصر وفلسطين اتحدد سنة 1906."
   },
   {
-    q: "ما عرض المياه الإقليمية لمصر؟",
-    options: ["6 أميال بحرية","10 أميال بحرية","12 ميلًا بحريًا","24 ميلًا بحريًا"],
+    q: "عرض المياه الإقليمية لمصر قد إيه؟",
+    options: ["6 أميال بحرية","10 أميال بحرية","12 ميل بحري","24 ميل بحري"],
     correct: 2,
-    expl: "تمتد المياه الإقليمية عادة لمسافة 12 ميلًا بحريًا من خط الأساس للساحل."
+    expl: "المياه الإقليمية بتمتد عادة لـ12 ميل بحري من خط الأساس للساحل."
   },
   {
-    q: "المجال الجوي للدولة يشمل:",
-    options: ["اليابس فقط","المياه الإقليمية فقط","اليابس والمياه الإقليمية","الفضاء الخارجي"],
+    q: "المجال الجوي للدولة بيشمل:",
+    options: ["اليابس بس","المياه الإقليمية بس","اليابس والمياه الإقليمية","الفضاء الخارجي"],
     correct: 2,
-    expl: "المجال الجوي هو المساحة الرأسية التي تعلو اليابس والمياه الإقليمية."
+    expl: "المجال الجوي هو المساحة الرأسية اللي بتعلو اليابس والمياه الإقليمية."
   },
   {
-    q: "المادة 101 من الدستور المصري تتعلق بـ:",
+    q: "المادة 101 من الدستور المصري بتتكلم عن:",
     options: ["السلطة التنفيذية","السلطة القضائية","السلطة التشريعية","رئيس الجمهورية"],
     correct: 2,
-    expl: "المادة 101 تنص على أن مجلس النواب يتولى سلطة التشريع وإقرار السياسة العامة والموازنة."
+    expl: "المادة 101 بتنص على إن مجلس النواب بيتولى سلطة التشريع وإقرار السياسة العامة والموازنة."
   },
   {
-    q: "«رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية» — هذه المادة رقم:",
+    q: "«رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية» — المادة رقم كام؟",
     options: ["101","139","163","184"],
     correct: 1,
-    expl: "المادة 139 تنص على أن رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية."
+    expl: "المادة 139 بتنص على إن رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية."
   },
   {
     q: "السلطة القضائية وفق المادة 184:",
-    options: ["تضع القوانين","تنفذ القوانين","مستقلة وتتولاها المحاكم","تضع الموازنة العامة"],
+    options: ["بتضع القوانين","بتنفذ القوانين","مستقلة وبتتولاها المحاكم","بتضع الموازنة العامة"],
     correct: 2,
-    expl: "المادة 184: السلطة القضائية مستقلة، تتولاها المحاكم على اختلاف أنواعها ودرجاتها."
+    expl: "المادة 184: السلطة القضائية مستقلة، بتتولاها المحاكم على اختلاف أنواعها ودرجاتها."
   },
   {
-    q: "أي مما يلي ليس من مقومات نشأة الدولة المصرية؟",
+    q: "إيه اللي مش من مقومات نشأة الدولة المصرية؟",
     options: ["الموقع الجغرافي","الموارد الطبيعية","التجانس البشري","الانعزال عن العالم"],
     correct: 3,
-    expl: "الانعزال عن العالم ليس من المقومات، بل على العكس؛ الانفتاح والموقع المتميز من المقومات."
+    expl: "الانعزال عن العالم مش من المقومات، بالعكس؛ الانفتاح والموقع المتميز من المقومات."
   },
   {
-    q: "قول جمال حمدان «مصر دولة نهر وموقعًا دولة برزخ» يعني:",
-    options: ["مصر دولة زراعية فقط","مصر تجمع بين الاستقرار الزراعي والموقع الاستراتيجي","مصر دولة تجارية فقط","مصر دولة عسكرية فقط"],
+    q: "جمال حمدان قال «مصر دولة نهر وموقعها دولة برزخ» — يعني إيه؟",
+    options: ["مصر دولة زراعية بس","مصر بتجمع بين الاستقرار الزراعي والموقع الاستراتيجي","مصر دولة تجارية بس","مصر دولة عسكرية بس"],
     correct: 1,
-    expl: "النيل جعلها دولة زراعية مستقرة، والموقع جعلها جسرًا (برزخًا) بين القارات."
+    expl: "النيل خلاها دولة زراعية مستقرة، والموقع خلاها جسر (برزخ) بين القارات."
   },
   {
-    q: "تحول المصري من «جامع ثمار» إلى «مزارع مستقر» كان بفضل:",
+    q: "المصري القديم تحول من «جامع ثمار» لـ«مزارع مستقر» بفضل:",
     options: ["الجيش","نهر النيل","الحكومة المركزية","التجانس البشري"],
     correct: 1,
-    expl: "نهر النيل هو العامل الأساسي لنشأة الدولة المصرية وحضارتها، وبه تحول المصري إلى مزارع مستقر."
+    expl: "نهر النيل هو العامل الأساسي لنشأة الدولة المصرية وحضارتها، وبه تحول المصري لمزارع مستقر."
   },
   {
-    q: "من الملك الذي وحّد القطرين وأسس الحكومة المركزية؟",
+    q: "مين الملك اللي وحّد القطرين وأسس الحكومة المركزية؟",
     options: ["مينا (نعرمر)","سقنن رع","أحمس","كامس"],
     correct: 0,
     expl: "الملك مينا (نعرمر) وحّد القطرين وأسس الحكومة المركزية القوية، وهو الأساس الحقيقي لظهور الدولة المصرية."
   },
   {
-    q: "عقيدة الجيش المصري تقوم على:",
+    q: "عقيدة الجيش المصري بتقوم على:",
     options: ["التوسع والفتوحات","البناء والحماية وعدم الاعتداء","السيطرة على الجيران","جمع الغنائم"],
     correct: 1,
     expl: "الجيش المصري يبني ويحمي ويحافظ على الأرض ولا يعتدي."
   },
   {
-    q: "أي مما يلي ليس من عوامل نجاح الهكسوس في السيطرة على مصر؟",
-    options: ["ضعف السلطة المركزية","تفوقهم العسكري","اختيارهم الدلتا","دعم الشعب المصري لهم"],
+    q: "إيه اللي مش من عوامل نجاح الهكسوس في السيطرة على مصر؟",
+    options: ["ضعف السلطة المركزية","تفوقهم العسكري","اختيارهم الدلتا","دعم الشعب المصري ليهم"],
     correct: 3,
-    expl: "الشعب المصري لم يدعم الهكسوس، بل قاومهم. العوامل الحقيقية: ضعف مركزي، عجز عن الحماية، تفوق عسكري، اختيار الدلتا."
+    expl: "الشعب المصري ما دعمش الهكسوس، بالعكس قاومهم. العوامل الحقيقية: ضعف مركزي، عجز عن الحماية، تفوق عسكري، اختيار الدلتا."
   },
   {
-    q: "من الملك الذي بدأ المرحلة الأولى في حرب الهكسوس وقُتل في المعركة؟",
+    q: "مين الملك اللي بدأ المرحلة الأولى في حرب الهكسوس واتقتل في المعركة؟",
     options: ["كامس","سقنن رع","أحمس","إياح حتب"],
     correct: 1,
-    expl: "سقنن رع تولى قيادة طيبة وبدأ المرحلة الأولى، وقُتل في المعركة لكن شرارة المقاومة لم تنطفئ."
+    expl: "سقنن رع تولى قيادة طيبة وبدأ المرحلة الأولى، واتقتل في المعركة لكن شرارة المقاومة ما انطفتش."
   },
   {
-    q: "من الملك الذي قطع طرق الإمداد القادمة من كوش لعزل الهكسوس؟",
+    q: "مين الملك اللي قطع طرق الإمداد الجاية من كوش لعزل الهكسوس؟",
     options: ["سقنن رع","كامس","أحمس","مينا"],
     correct: 1,
-    expl: "كامس اعتمد سياسة عسكرية تقوم على قطع طرق الإمداد القادمة من مملكة كوش؛ بهدف عزل الهكسوس."
+    expl: "كامس اعتمد سياسة عسكرية بتقوم على قطع طرق الإمداد الجاية من مملكة كوش؛ بهدف عزل الهكسوس."
   },
   {
-    q: "من الملك الذي أسس أول إمبراطورية في التاريخ المصري القديم؟",
+    q: "مين الملك اللي أسس أول إمبراطورية في التاريخ المصري القديم؟",
     options: ["سقنن رع","كامس","أحمس الأول","رمسيس الثاني"],
     correct: 2,
-    expl: "أحمس الأول أكمل مسيرة أخيه ووالده، وحاصر الهكسوس في أواريس، وطاردهم خارج مصر، وأسس أول إمبراطورية."
+    expl: "أحمس الأول أكمل مسيرة أخوه وأبوه، وحاصر الهكسوس في أواريس، وطاردهم خارج مصر، وأسس أول إمبراطورية."
   },
   {
-    q: "دور الملكة إياح حتب تمثل في:",
-    options: ["قيادة المعارك بنفسها","جمع الجيش وحماية الناس وإعادة الهاربين","إدارة البلاد سياسيًا فقط","التفاوض مع الهكسوس"],
+    q: "دور الملكة إياح حتب كان إيه؟",
+    options: ["قيادة المعارك بنفسها","جمع الجيش وحماية الناس وإعادة الهاربين","إدارة البلاد سياسيًا بس","التفاوض مع الهكسوس"],
     correct: 1,
     expl: "إياح حتب جمعت جيشها، وحمت الناس، وأعادت الهاربين، ولمّت شتات المهاجرين، وهدّأت الصعيد."
   },
   {
-    q: "متى سقطت مصر في يد الفرس؟",
+    q: "مصر سقطت في إيد الفرس سنة كام؟",
     options: ["332 ق.م","525 ق.م","323 ق.م","1906 م"],
     correct: 1,
-    expl: "سقطت مصر في يد الفرس عام 525 ق.م بعد معركة شرق الدلتا."
+    expl: "مصر سقطت في إيد الفرس سنة 525 ق.م بعد معركة شرق الدلتا."
   },
   {
-    q: "الملك الفارسي الذي قاد احتلال مصر:",
+    q: "الملك الفارسي اللي قاد احتلال مصر:",
     options: ["داريوس","قمبيز الثاني","أحشويرش","قورش"],
     correct: 1,
-    expl: "قمبيز الثاني هو الملك الفارسي الذي قاد احتلال مصر عام 525 ق.م."
+    expl: "قمبيز الثاني هو الملك الفارسي اللي قاد احتلال مصر سنة 525 ق.م."
   },
   {
-    q: "دخل الإسكندر الأكبر مصر عام:",
+    q: "الإسكندر الأكبر دخل مصر سنة كام؟",
     options: ["525 ق.م","323 ق.م","332 ق.م","30 ق.م"],
     correct: 2,
-    expl: "دخل الإسكندر الأكبر مصر عام 332 ق.م."
+    expl: "الإسكندر الأكبر دخل مصر سنة 332 ق.م."
   },
   {
-    q: "لماذا لم يلقَ الإسكندر مقاومة تذكر عند دخول مصر؟",
-    options: ["لأنه كان قويًا عسكريًا فقط","لأن المصريين رأوا فيه محررًا من الفرس","لأنه احترم العادات فقط","لأن الجيش المصري كان ضعيفًا"],
+    q: "ليه الإسكندر ما لاقاش مقاومة تذكر لما دخل مصر؟",
+    options: ["عشان كان قوي عسكريًا بس","عشان المصريين شافوه محرر من الفرس","عشان احترم العادات بس","عشان الجيش المصري كان ضعيف"],
     correct: 1,
-    expl: "المصريون وجدوا في الإسكندر فرصة للتخلص من الحكم الفارسي الذي عانوا منه."
+    expl: "المصريين شافوا في الإسكندر فرصة للتخلص من الحكم الفارسي اللي عانوا منه."
   },
   {
-    q: "بعد وفاة الإسكندر، سيطر على مصر:",
+    q: "بعد موت الإسكندر، مين سيطر على مصر؟",
     options: ["سلوقس","كاسندر","بطلميوس بن لاجوس","ليسيماكوس"],
     correct: 2,
-    expl: "بطلميوس بن لاجوس فرض سيطرته على مصر وجعلها قاعدة لحكمه، وأسس دولة البطالمة."
+    expl: "بطلميوس بن لاجوس فرض سيطرته على مصر وعملها قاعدة لحكمه، وأسس دولة البطالمة."
   },
   {
-    q: "معركة أكتيوم البحرية أدت إلى:",
-    options: ["تأسيس دولة البطالمة","سقوط مصر في يد الرومان","طرد الهكسوس","طرد الفرس"],
+    q: "معركة أكتيوم البحرية أدت لإيه؟",
+    options: ["تأسيس دولة البطالمة","سقوط مصر في إيد الرومان","طرد الهكسوس","طرد الفرس"],
     correct: 1,
-    expl: "بعد معركة أكتيوم البحرية وهزيمة كليوباترا السابعة، سيطر أكتافيوس على مصر لتصبح ولاية رومانية."
+    expl: "بعد معركة أكتيوم البحرية وهزيمة كليوباترا السابعة، أكتافيوس سيطر على مصر وبقت ولاية رومانية."
   },
   {
-    q: "«عصر الشهداء» في مصر يشير إلى:",
+    q: "«عصر الشهداء» في مصر بيشير لإيه؟",
     options: ["عصر الهكسوس","عصر الاضطهاد الروماني للمسيحيين","عصر الفرس","عصر البطالمة"],
     correct: 1,
-    expl: "بلغ اضطهاد الرومان للمسيحيين ذروته في عهد دقلديانوس، حتى عُرف هذا العصر باسم «عصر الشهداء»."
+    expl: "اضطهاد الرومان للمسيحيين وصل لأقصى درجة في عهد دقلديانوس، لحد ما عُرف العصر ده باسم «عصر الشهداء»."
   },
   {
-    q: "لماذا منع الرومان دخول أعضاء مجلس الشيوخ إلى مصر إلا بإذن؟",
-    options: ["لأن مصر بعيدة جغرافيًا","لأهمية مصر الاستراتيجية والاقتصادية","لأن المصريين رفضوا ذلك","لأن المناخ كان صعبًا"],
+    q: "ليه الرومان منعوا دخول أعضاء مجلس الشيوخ لمصر إلا بإذن؟",
+    options: ["عشان مصر بعيدة جغرافيًا","عشان أهمية مصر الاستراتيجية والاقتصادية","عشان المصريين رفضوا","عشان المناخ كان صعب"],
     correct: 1,
-    expl: "لما لمصر من أهمية استراتيجية واقتصادية كبرى للإمبراطورية الرومانية."
+    expl: "لمصر من أهمية استراتيجية واقتصادية كبرى للإمبراطورية الرومانية."
   }
 ];
 
@@ -1635,7 +1835,7 @@ function submitExam(auto=false){
   if(!auto){
     const unanswered = answers.filter(a=>a===null).length;
     if(unanswered > 0){
-      if(!confirm(`لديك ${unanswered} سؤالًا بدون إجابة. هل تريد التسليم؟`)) return;
+      if(!confirm(`يا نجم، عندك ${unanswered} سؤال لسه ما جاوبتش عليهم. تسلّم برضه؟`)) return;
     }
   }
   clearInterval(timerInterval);
@@ -1651,11 +1851,11 @@ function submitExam(auto=false){
 function showResult(correct, score){
   document.getElementById('examBody').style.display = 'none';
   const result = document.getElementById('resultScreen');
-  let grade, gradeClass;
-  if(score >= 85){ grade = 'ممتاز 🏆'; gradeClass = 'grade-excellent'; }
-  else if(score >= 70){ grade = 'جيد جدًا ⭐'; gradeClass = 'grade-good'; }
-  else if(score >= 50){ grade = 'مقبول ✅'; gradeClass = 'grade-pass'; }
-  else { grade = 'يحتاج مراجعة 📚'; gradeClass = 'grade-fail'; }
+  let grade, gradeClass, comment;
+  if(score >= 85){ grade = 'ممتاز يا وحش 🏆'; gradeClass = 'grade-excellent'; comment = 'إنت كده فاهم التاريخ المصري زي عيلك. برافو عليك!'; }
+  else if(score >= 70){ grade = 'جيد جدًا يا نجم ⭐'; gradeClass = 'grade-good'; comment = 'شغل حلو، بس راجع الحاجات اللي غلطت فيها.'; }
+  else if(score >= 50){ grade = 'مقبول يا صاحبي ✅'; gradeClass = 'grade-pass'; comment = 'إنت في النص. يلا شد حيلك شوية.'; }
+  else { grade = 'محتاج مراجعة يا معلم 📚'; gradeClass = 'grade-fail'; comment = 'متزعلش، ارجع اقرأ الدرس تاني وأنا واثق إنك هتعدي.'; }
 
   const wrong = questions.length - correct;
   const timeUsed = 25*60 - timeLeft;
@@ -1663,22 +1863,23 @@ function showResult(correct, score){
   const s = timeUsed%60;
 
   result.innerHTML = `
-    <h2 class="amiri" style="font-size:2rem;color:var(--brown)">نتيجتك النهائية</h2>
+    <h2 class="amiri" style="font-size:2rem;color:var(--brown)">نتيجتك النهائية يا معلم</h2>
     <div class="result-score">${score}%</div>
     <div class="result-grade ${gradeClass}">${grade}</div>
+    <p style="font-size:1.1rem;color:var(--brown-light);margin-bottom:1rem">${comment}</p>
 
     <div class="result-stats">
-      <div class="result-stat"><div class="n">${correct}</div><div class="l">إجابات صحيحة</div></div>
-      <div class="result-stat"><div class="n">${wrong}</div><div class="l">إجابات خاطئة</div></div>
+      <div class="result-stat"><div class="n">${correct}</div><div class="l">إجابات صح</div></div>
+      <div class="result-stat"><div class="n">${wrong}</div><div class="l">إجابات غلط</div></div>
       <div class="result-stat"><div class="n">${questions.length}</div><div class="l">إجمالي الأسئلة</div></div>
       <div class="result-stat"><div class="n">${m}:${String(s).padStart(2,'0')}</div><div class="l">الوقت المستغرق</div></div>
     </div>
 
     <div style="margin:1.5rem 0">
-      <button class="btn btn-primary" onclick="restartExam()">🔄 إعادة الامتحان</button>
+      <button class="btn btn-primary" onclick="restartExam()">🔄 حاول تاني يا نجم</button>
     </div>
 
-    <h3 class="amiri" style="font-size:1.5rem;color:var(--brown);margin-top:2rem;text-align:right">📋 مراجعة الإجابات</h3>
+    <h3 class="amiri" style="font-size:1.5rem;color:var(--brown);margin-top:2rem;text-align:right">📋 راجع إجاباتك واحدة واحدة</h3>
     <div class="review">
       ${questions.map((q,i)=>{
         const userAns = answers[i];
@@ -1687,10 +1888,10 @@ function showResult(correct, score){
           <div class="review-item ${isCorrect?'correct':'wrong'}">
             <div class="rq">${i+1}. ${q.q}</div>
             <div class="ra ${isCorrect?'correct-ans':'wrong-ans'}">
-              ${isCorrect ? '✅ إجابتك صحيحة: ' : '❌ إجابتك: '}
-              ${userAns !== null ? q.options[userAns] : 'لم تُجب'}
+              ${isCorrect ? '✅ إجابتك صح: ' : '❌ إجابتك: '}
+              ${userAns !== null ? q.options[userAns] : 'ما جاوبتش'}
             </div>
-            ${!isCorrect ? `<div class="ra correct-ans">✅ الإجابة الصحيحة: ${q.options[q.correct]}</div>` : ''}
+            ${!isCorrect ? `<div class="ra correct-ans">✅ الإجابة الصح: ${q.options[q.correct]}</div>` : ''}
             <div class="expl">${q.expl}</div>
           </div>
         `;
@@ -1714,7 +1915,6 @@ function restartExam(){
   window.scrollTo({top: document.getElementById('exam').offsetTop - 60, behavior:'smooth'});
 }
 
-/* ========== تفعيل أول رابط في التنقل ========== */
 document.querySelector('.nav a').classList.add('active');
 </script>
 
