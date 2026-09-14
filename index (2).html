@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مصر عبر التاريخ | رحلة تفاعلية في أركان الدولة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========== المتغيرات ========== */
+:root{
+  --papyrus:#f4e4c1;
+  --papyrus-dark:#e8d5a8;
+  --gold:#c9a227;
+  --gold-bright:#f0c419;
+  --gold-deep:#8b6914;
+  --brown:#3b2412;
+  --brown-light:#5a3a1e;
+  --terracotta:#b5651d;
+  --nile:#1e6091;
+  --nile-deep:#0d3b5c;
+  --sand:#d9c08a;
+  --shadow:rgba(59,36,18,.25);
+  --glass:rgba(244,228,193,.85);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--brown);
+  color:var(--brown);
+  overflow-x:hidden;
+  line-height:1.9;
+}
+h1,h2,h3,h4,.amiri{font-family:'Amiri',serif}
+
+/* ========== خلفية البردي ========== */
+.papyrus-bg{
+  background:
+    radial-gradient(circle at 20% 30%, rgba(201,162,39,.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(181,101,29,.12), transparent 40%),
+    linear-gradient(135deg, var(--papyrus) 0%, var(--papyrus-dark) 100%);
+  position:relative;
+}
+.papyrus-bg::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(139,105,20,.05) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(139,105,20,.04) 0 1px, transparent 1px 6px);
+  pointer-events:none;
+}
+
+/* ========== الهيدر ========== */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,162,39,.3), transparent 60%),
+    linear-gradient(180deg, #1a0f06 0%, #2c1810 50%, #3b2412 100%);
+  padding:2rem;
+}
+.hero::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:150px;
+  background:linear-gradient(180deg, transparent, var(--papyrus));
+}
+.hieroglyphs{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+}
+.hieroglyph{
+  position:absolute;
+  font-family:'Amiri',serif;
+  font-size:3rem;
+  color:rgba(201,162,39,.25);
+  animation:floatGlyph linear infinite;
+  user-select:none;
+}
+@keyframes floatGlyph{
+  0%{transform:translateY(110vh) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-20vh) rotate(360deg);opacity:0}
+}
+.hero-content{
+  position:relative;z-index:5;text-align:center;max-width:1000px;
+  animation:fadeUp 1.5s ease-out;
+}
+.hero h1{
+  font-size:clamp(2.5rem,7vw,5.5rem);
+  color:var(--gold-bright);
+  text-shadow:0 0 30px rgba(240,196,25,.6), 0 4px 0 var(--gold-deep);
+  margin-bottom:1rem;
+  letter-spacing:2px;
+}
+.hero .subtitle{
+  font-size:clamp(1.1rem,2.5vw,1.6rem);
+  color:var(--sand);
+  margin-bottom:2rem;
+  font-weight:300;
+}
+.hero .cartouche{
+  display:inline-block;
+  border:4px double var(--gold);
+  border-radius:50px;
+  padding:1rem 2.5rem;
+  background:rgba(0,0,0,.3);
+  color:var(--gold-bright);
+  font-family:'Amiri',serif;
+  font-size:1.3rem;
+  margin-bottom:2rem;
+  box-shadow:0 0 40px rgba(201,162,39,.4) inset;
+}
+.scroll-hint{
+  position:absolute;bottom:180px;left:50%;transform:translateX(-50%);
+  color:var(--gold);font-size:2rem;z-index:6;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-15px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+/* ========== شريط التنقل ========== */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(26,15,6,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid var(--gold);
+  padding:.6rem 1rem;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+.nav-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;
+}
+.nav a{
+  color:var(--sand);text-decoration:none;
+  padding:.4rem .9rem;border-radius:8px;
+  font-size:.85rem;font-weight:600;
+  transition:all .3s;
+  border:1px solid transparent;
+  cursor:pointer;
+}
+.nav a:hover,.nav a.active{
+  background:var(--gold);color:var(--brown);
+  border-color:var(--gold-bright);
+  transform:translateY(-2px);
+}
+
+/* ========== الأقسام ========== */
+.section{
+  padding:5rem 1.5rem;
+  position:relative;
+}
+.container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+
+.section-title{
+  font-size:clamp(1.8rem,4vw,3rem);
+  color:var(--brown);
+  text-align:center;
+  margin-bottom:.5rem;
+  position:relative;
+  display:inline-block;
+  padding-bottom:1rem;
+}
+.section-title::after{
+  content:'';
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:120px;height:4px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius:2px;
+}
+.title-wrap{text-align:center;margin-bottom:3rem}
+.section-subtitle{
+  text-align:center;color:var(--brown-light);
+  font-size:1.05rem;max-width:700px;margin:1rem auto 0;
+}
+
+/* ========== الكروت ========== */
+.grid{display:grid;gap:1.5rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+.card{
+  background:rgba(255,255,255,.55);
+  border:2px solid rgba(139,105,20,.3);
+  border-radius:16px;
+  padding:1.8rem;
+  position:relative;
+  overflow:hidden;
+  transition:all .5s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 6px 20px var(--shadow);
+}
+.card::before{
+  content:'';
+  position:absolute;top:0;right:0;left:0;height:5px;
+  background:linear-gradient(90deg, var(--gold), var(--terracotta), var(--gold));
+  transform:scaleX(0);transform-origin:right;
+  transition:transform .5s;
+}
+.card:hover::before{transform:scaleX(1)}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 40px rgba(139,105,20,.35);
+  border-color:var(--gold);
+}
+.card h3{
+  color:var(--brown);
+  font-size:1.5rem;
+  margin-bottom:1rem;
+  display:flex;align-items:center;gap:.7rem;
+}
+.card-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;
+  background:linear-gradient(135deg, var(--gold), var(--terracotta));
+  border-radius:12px;
+  font-size:1.5rem;
+  box-shadow:0 4px 12px rgba(201,162,39,.5);
+  flex-shrink:0;
+}
+.card p,.card li{color:var(--brown-light);font-size:1rem}
+.card ul{padding-right:1.3rem;margin-top:.5rem}
+.card li{margin-bottom:.5rem}
+
+/* ========== صناديق مميزة ========== */
+.definition{
+  background:linear-gradient(135deg, rgba(30,96,145,.12), rgba(30,96,145,.05));
+  border-right:6px solid var(--nile);
+  border-radius:12px;
+  padding:1.5rem;
+  margin:1rem 0;
+  position:relative;
+}
+.definition::before{
+  content:'📜';
+  position:absolute;top:-15px;right:15px;
+  font-size:1.8rem;
+  background:var(--papyrus);
+  padding:0 .5rem;
+}
+.definition strong{color:var(--nile-deep);font-size:1.1rem}
+
+.tip{
+  background:linear-gradient(135deg, rgba(201,162,39,.15), rgba(181,101,29,.1));
+  border:2px dashed var(--gold);
+  border-radius:12px;
+  padding:1.2rem 1.5rem;
+  margin:1rem 0;
+  position:relative;
+}
+.tip::before{
+  content:'🔑 تكنيك الحفظ';
+  display:inline-block;
+  background:var(--gold);
+  color:var(--brown);
+  font-weight:700;
+  padding:.2rem .8rem;
+  border-radius:20px;
+  font-size:.8rem;
+  margin-bottom:.6rem;
+}
+.tip code{
+  background:var(--brown);
+  color:var(--gold-bright);
+  padding:.3rem .7rem;
+  border-radius:6px;
+  font-family:'Cairo',sans-serif;
+  font-weight:700;
+  font-size:1.05rem;
+  letter-spacing:2px;
+}
+
+/* ========== الحوارات ========== */
+.dialogue{
+  display:flex;gap:1rem;margin:1.5rem 0;
+  align-items:flex-start;
+  opacity:0;transform:translateX(30px);
+  transition:all .8s;
+}
+.dialogue.visible{opacity:1;transform:translateX(0)}
+.dialogue.left{flex-direction:row-reverse}
+.avatar{
+  width:60px;height:60px;flex-shrink:0;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+  border:3px solid var(--gold);
+  box-shadow:0 4px 12px var(--shadow);
+}
+.avatar.pharaoh{background:linear-gradient(135deg, #d4af37, #8b6914)}
+.avatar.student{background:linear-gradient(135deg, #5ba3d0, #1e6091)}
+.bubble{
+  background:rgba(255,255,255,.7);
+  border-radius:16px;
+  padding:1rem 1.3rem;
+  position:relative;
+  flex:1;
+  border:1px solid rgba(139,105,20,.25);
+  box-shadow:0 4px 12px var(--shadow);
+}
+.bubble .name{font-weight:700;color:var(--terracotta);font-size:.9rem;margin-bottom:.3rem}
+
+/* ========== الخط الزمني ========== */
+.timeline{
+  position:relative;
+  padding:2rem 0;
+  margin:2rem 0;
+}
+.timeline::before{
+  content:'';
+  position:absolute;right:50%;top:0;bottom:0;
+  width:4px;
+  background:linear-gradient(180deg, var(--gold), var(--terracotta), var(--gold));
+  transform:translateX(50%);
+  border-radius:2px;
+}
+.tl-item{
+  position:relative;
+  width:50%;
+  padding:1rem 2rem;
+  opacity:0;transform:translateY(30px);
+  transition:all .8s;
+}
+.tl-item.visible{opacity:1;transform:translateY(0)}
+.tl-item:nth-child(odd){margin-right:0;text-align:left}
+.tl-item:nth-child(even){margin-right:50%;text-align:right}
+.tl-item::after{
+  content:'';
+  position:absolute;top:1.5rem;
+  width:18px;height:18px;
+  background:var(--gold);
+  border:3px solid var(--brown);
+  border-radius:50%;
+  box-shadow:0 0 15px var(--gold-bright);
+}
+.tl-item:nth-child(odd)::after{right:-9px}
+.tl-item:nth-child(even)::after{right:-9px}
+.tl-card{
+  background:rgba(255,255,255,.75);
+  border-radius:12px;
+  padding:1rem 1.2rem;
+  border-right:4px solid var(--gold);
+  box-shadow:0 4px 12px var(--shadow);
+}
+.tl-card h4{color:var(--terracotta);font-size:1.15rem;margin-bottom:.3rem}
+
+/* ========== الأرقام الكبيرة ========== */
+.stat-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1rem;margin:2rem 0;
+}
+.stat{
+  background:linear-gradient(135deg, var(--brown), var(--brown-light));
+  color:var(--gold-bright);
+  padding:1.5rem;
+  border-radius:14px;
+  text-align:center;
+  border:2px solid var(--gold);
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
+  transition:transform .3s;
+}
+.stat:hover{transform:scale(1.05) rotate(-1deg)}
+.stat .num{font-family:'Amiri',serif;font-size:2.5rem;font-weight:900;line-height:1;margin-bottom:.5rem}
+.stat .label{font-size:.9rem;color:var(--sand)}
+
+/* ========== جدول ========== */
+.table-wrap{overflow-x:auto;border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+table{
+  width:100%;border-collapse:collapse;
+  background:rgba(255,255,255,.6);
+  border-radius:14px;overflow:hidden;
+}
+th{
+  background:linear-gradient(135deg, var(--brown), var(--brown-light));
+  color:var(--gold-bright);
+  padding:1rem;
+  font-weight:700;
+  text-align:right;
+}
+td{
+  padding:.9rem 1rem;
+  border-bottom:1px solid rgba(139,105,20,.2);
+  color:var(--brown-light);
+}
+tr:hover td{background:rgba(201,162,39,.1)}
+
+/* ========== قسم الامتحان ========== */
+.exam-section{
+  background:linear-gradient(180deg, #1a0f06, #2c1810, #1a0f06);
+  color:var(--sand);
+  padding:5rem 1.5rem;
+}
+.exam-section .section-title{color:var(--gold-bright)}
+.exam-section .section-subtitle{color:var(--sand)}
+
+.exam-header{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  justify-content:space-between;align-items:center;
+  background:rgba(0,0,0,.4);
+  border:2px solid var(--gold);
+  border-radius:16px;
+  padding:1.2rem 1.5rem;
+  margin-bottom:2rem;
+  position:sticky;top:70px;z-index:50;
+  backdrop-filter:blur(10px);
+}
+.timer{
+  display:flex;align-items:center;gap:.7rem;
+  font-family:'Amiri',serif;
+  font-size:1.5rem;
+  color:var(--gold-bright);
+  font-weight:700;
+}
+.timer.warning{color:#ff5757;animation:pulseWarn 1s infinite}
+@keyframes pulseWarn{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.timer-icon{font-size:1.8rem}
+
+.progress-wrap{
+  flex:1;min-width:200px;
+  background:rgba(255,255,255,.1);
+  border-radius:20px;height:14px;overflow:hidden;
+  border:1px solid var(--gold);
+}
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg, var(--terracotta), var(--gold-bright));
+  border-radius:20px;
+  transition:width .5s;
+  width:0%;
+}
+.exam-info{font-size:.95rem;color:var(--sand)}
+.exam-info strong{color:var(--gold-bright)}
+
+.q-nav{
+  display:flex;flex-wrap:wrap;gap:.4rem;
+  background:rgba(0,0,0,.3);
+  border-radius:12px;
+  padding:.8rem;
+  margin-bottom:2rem;
+  justify-content:center;
+}
+.q-nav button{
+  width:38px;height:38px;
+  border-radius:8px;
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--sand);
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:'Cairo',sans-serif;
+}
+.q-nav button:hover{background:rgba(201,162,39,.2)}
+.q-nav button.answered{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+.q-nav button.current{background:var(--gold-bright);color:var(--brown);border-color:var(--gold-bright);transform:scale(1.1)}
+
+.question-card{
+  background:rgba(244,228,193,.96);
+  color:var(--brown);
+  border-radius:20px;
+  padding:2rem;
+  border:3px double var(--gold);
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  animation:slideIn .5s;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.q-number{
+  display:inline-block;
+  background:var(--brown);
+  color:var(--gold-bright);
+  padding:.3rem 1rem;
+  border-radius:20px;
+  font-weight:700;
+  margin-bottom:1rem;
+  font-size:.9rem;
+}
+.q-text{
+  font-family:'Amiri',serif;
+  font-size:1.35rem;
+  color:var(--brown);
+  margin-bottom:1.5rem;
+  line-height:1.7;
+  font-weight:700;
+}
+.options{display:flex;flex-direction:column;gap:.8rem}
+.option{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.2rem;
+  background:rgba(255,255,255,.6);
+  border:2px solid rgba(139,105,20,.25);
+  border-radius:12px;
+  cursor:pointer;
+  transition:all .3s;
+  font-size:1.05rem;
+}
+.option:hover{
+  background:rgba(201,162,39,.2);
+  border-color:var(--gold);
+  transform:translateX(-5px);
+}
+.option.selected{
+  background:linear-gradient(135deg, rgba(201,162,39,.35), rgba(181,101,29,.25));
+  border-color:var(--gold-deep);
+  box-shadow:0 4px 15px rgba(201,162,39,.4);
+}
+.option.correct{
+  background:linear-gradient(135deg, rgba(76,175,80,.35), rgba(56,142,60,.25));
+  border-color:#2e7d32;
+}
+.option.wrong{
+  background:linear-gradient(135deg, rgba(244,67,54,.3), rgba(198,40,40,.2));
+  border-color:#c62828;
+}
+.option-key{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;flex-shrink:0;
+  background:var(--brown);
+  color:var(--gold-bright);
+  border-radius:50%;
+  font-weight:700;
+  font-family:'Amiri',serif;
+  font-size:1.2rem;
+}
+.option.selected .option-key{background:var(--gold-deep);color:#fff}
+
+.exam-controls{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  justify-content:space-between;
+  margin-top:2rem;
+}
+.btn{
+  padding:.9rem 2rem;
+  border:none;border-radius:12px;
+  font-family:'Cairo',sans-serif;
+  font-weight:700;font-size:1rem;
+  cursor:pointer;
+  transition:all .3s;
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-primary{
+  background:linear-gradient(135deg, var(--gold-bright), var(--terracotta));
+  color:var(--brown);
+  box-shadow:0 6px 20px rgba(240,196,25,.4);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(240,196,25,.6)}
+.btn-secondary{
+  background:transparent;
+  color:var(--gold-bright);
+  border:2px solid var(--gold);
+}
+.btn-secondary:hover{background:rgba(201,162,39,.15)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+.btn-submit{
+  background:linear-gradient(135deg, #2e7d32, #1b5e20);
+  color:#fff;
+  box-shadow:0 6px 20px rgba(46,125,50,.4);
+}
+
+/* ========== النتيجة ========== */
+.result-screen{
+  display:none;
+  text-align:center;
+  padding:3rem 1.5rem;
+  background:rgba(244,228,193,.96);
+  color:var(--brown);
+  border-radius:20px;
+  border:3px double var(--gold);
+  animation:slideIn .6s;
+}
+.result-screen.show{display:block}
+.result-score{
+  font-family:'Amiri',serif;
+  font-size:6rem;
+  font-weight:900;
+  color:var(--terracotta);
+  line-height:1;
+  margin:1rem 0;
+  text-shadow:3px 3px 0 var(--gold);
+}
+.result-grade{
+  font-size:1.8rem;
+  font-weight:700;
+  margin-bottom:1.5rem;
+  padding:.8rem 2rem;
+  border-radius:50px;
+  display:inline-block;
+}
+.grade-excellent{background:linear-gradient(135deg,#4caf50,#2e7d32);color:#fff}
+.grade-good{background:linear-gradient(135deg,#2196f3,#1565c0);color:#fff}
+.grade-pass{background:linear-gradient(135deg,#ff9800,#e65100);color:#fff}
+.grade-fail{background:linear-gradient(135deg,#f44336,#c62828);color:#fff}
+
+.result-stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1rem;
+  margin:2rem 0;
+}
+.result-stat{
+  background:rgba(59,36,18,.1);
+  border-radius:12px;
+  padding:1rem;
+  border:2px solid var(--gold);
+}
+.result-stat .n{font-family:'Amiri',serif;font-size:2rem;font-weight:900;color:var(--brown)}
+.result-stat .l{font-size:.85rem;color:var(--brown-light)}
+
+/* ========== مراجعة الإجابات ========== */
+.review{
+  margin-top:2rem;
+  text-align:right;
+  max-height:600px;
+  overflow-y:auto;
+  padding-left:.5rem;
+}
+.review::-webkit-scrollbar{width:8px}
+.review::-webkit-scrollbar-track{background:rgba(0,0,0,.1);border-radius:10px}
+.review::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+.review-item{
+  background:rgba(255,255,255,.6);
+  border-radius:12px;
+  padding:1.2rem;
+  margin-bottom:1rem;
+  border-right:5px solid var(--gold);
+}
+.review-item.wrong{border-right-color:#c62828;background:rgba(244,67,54,.08)}
+.review-item.correct{border-right-color:#2e7d32;background:rgba(76,175,80,.08)}
+.review-item .rq{font-weight:700;margin-bottom:.6rem;color:var(--brown);font-family:'Amiri',serif;font-size:1.1rem}
+.review-item .ra{font-size:.95rem;margin-bottom:.3rem}
+.review-item .ra.correct-ans{color:#2e7d32;font-weight:700}
+.review-item .ra.wrong-ans{color:#c62828}
+.review-item .expl{
+  background:rgba(201,162,39,.15);
+  padding:.7rem 1rem;
+  border-radius:8px;
+  margin-top:.6rem;
+  font-size:.9rem;
+  color:var(--brown-light);
+  border-right:3px solid var(--gold);
+}
+.review-item .expl::before{content:'💡 ';font-weight:700}
+
+/* ========== الفوتر ========== */
+footer{
+  background:#1a0f06;
+  color:var(--sand);
+  text-align:center;
+  padding:2rem 1rem;
+  border-top:2px solid var(--gold);
+  font-size:.9rem;
+}
+footer .gold{color:var(--gold-bright);font-family:'Amiri',serif;font-size:1.2rem}
+
+/* ========== الحركات ========== */
+.reveal{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ========== استجابة ========== */
+@media(max-width:768px){
+  .timeline::before{right:20px}
+  .tl-item{width:100%;padding-right:50px;padding-left:1rem;text-align:right!important;margin-right:0!important}
+  .tl-item::after{right:11px}
+  .exam-header{position:static}
+  .hero h1{font-size:2.2rem}
+  .q-text{font-size:1.1rem}
+  .option{font-size:.95rem;padding:.8rem 1rem}
+  .result-score{font-size:4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== الهيدر ========== -->
+<header class="hero" id="home">
+  <div class="hieroglyphs" id="hieroglyphs"></div>
+  <div class="hero-content">
+    <div class="cartouche">𓂀 رحلة في تاريخ مصر 𓂀</div>
+    <h1>مصر عبر التاريخ</h1>
+    <p class="subtitle">من أركان الدولة القديمة إلى مقاومة الاحتلال — رحلة تفاعلية شاملة</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#lesson1" class="btn btn-primary">📖 ابدأ الرحلة</a>
+      <a href="#exam" class="btn btn-secondary">📝 اذهب للامتحان</a>
+    </div>
+  </div>
+  <div class="scroll-hint">⬇</div>
+</header>
+
+<!-- ========== شريط التنقل ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#lesson1">مفهوم الدولة</a>
+    <a href="#arkan">الأركان</a>
+    <a href="#geography">الحيز الجغرافي</a>
+    <a href="#power">السلطة</a>
+    <a href="#sovereignty">السيادة</a>
+    <a href="#components">المقومات</a>
+    <a href="#hyksos">الهكسوس</a>
+    <a href="#persians">الفرس</a>
+    <a href="#alexander">الإسكندر</a>
+    <a href="#romans">الرومان</a>
+    <a href="#exam">الامتحان</a>
+  </div>
+</nav>
+
+<!-- ========== الدرس 11 ========== -->
+<section class="section papyrus-bg" id="lesson1">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">مفهوم الدولة</h2>
+      <p class="section-subtitle">ما الذي نعني به "الدولة" بمفهومها الحديث؟</p>
+    </div>
+
+    <div class="dialogue reveal" data-dir="left">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">الطالب</div>
+        <p>يا أستاذ، نسمع كلمة "دولة" كثيرًا... فما تعريفها الحقيقي؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal" data-dir="right">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم</div>
+        <p>الدولة هي <strong>وحدة سياسية</strong> تشغل <strong>حيزًا جغرافيًا محددًا</strong>، وتضم <strong>شعبًا</strong> يقوم على دعامة دائمة ويخضع لقوانينها، وتديرها <strong>سلطة منظمة</strong> تباشر اختصاصاتها بما يحقق الأمن والاستقرار، وتمارس <strong>سيادتها</strong> على شئونها الداخلية والخارجية.</p>
+      </div>
+    </div>
+
+    <div class="definition reveal">
+      <strong>📌 التعريف الكامل:</strong>
+      <p style="margin-top:.5rem">الدولة = وحدة سياسية + حيز جغرافي محدد + شعب + سلطة منظمة + سيادة داخلية وخارجية.</p>
+    </div>
+
+    <div class="tip reveal">
+      احفظ عناصر الدولة بهذا الاختصار:
+      <div style="margin-top:.8rem;text-align:center">
+        <code>و ح ش س س</code>
+      </div>
+      <p style="margin-top:.8rem;text-align:center;font-weight:700">
+        <strong>و</strong>حدة سياسية — <strong>ح</strong>يز جغرافي — <strong>ش</strong>عب — <strong>س</strong>لطة — <strong>س</strong>يادة
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الأركان الأربعة ========== -->
+<section class="section papyrus-bg" id="arkan" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">أركان الدولة الأربعة</h2>
+      <p class="section-subtitle">بدون أي ركن منها لا تقوم للدولة قائمة</p>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- الشعب -->
+      <div class="card reveal">
+        <h3><span class="card-icon">👥</span>1. الشعب</h3>
+        <p>يشمل جميع المواطنين المقيمين داخل حدود الدولة أو خارجها ممن يحملون الجنسية المصرية.</p>
+        <div class="definition" style="margin-top:1rem">
+          <strong>لماذا يُعد الشعب الركن الرئيسي؟</strong>
+          <p style="margin-top:.4rem">لأن الدستور نصّ في مادته الرابعة على أن السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات.</p>
+        </div>
+        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">دور الشعب في بناء الدولة:</p>
+        <ul>
+          <li><strong>سياسيًا:</strong> انتخاب الحكام ومراقبة الحكومة عبر مجلس النواب</li>
+          <li><strong>اقتصاديًا:</strong> العمل والإنتاج ودفع الضرائب</li>
+          <li><strong>أمنيًا:</strong> الالتزام بالدستور والقوانين ودعم الأمن</li>
+          <li><strong>هوية:</strong> الحفاظ على التراث والثقافة والعادات</li>
+          <li><strong>دفاعيًا:</strong> مساندة القوات المسلحة والعمل التطوعي</li>
+        </ul>
+        <div class="tip">
+          <code>س ا أ هـ د</code>
+          <p style="margin-top:.5rem;font-weight:700">س<small>ياسي</small> — ا<small>قتصادي</small> — أ<small>مني</small> — هـ<small>وية</small> — د<small>فاع</small></p>
+        </div>
+      </div>
+
+      <!-- الحيز الجغرافي -->
+      <div class="card reveal">
+        <h3><span class="card-icon">🗺️</span>2. الحيز الجغرافي</h3>
+        <p>الرقعة المحددة التي تمارس الدولة سيادتها عليها، وتشمل:</p>
+        <ul>
+          <li>اليابس (الأرض)</li>
+          <li>المياه الإقليمية</li>
+          <li>المجال الجوي</li>
+        </ul>
+        <div class="definition" style="margin-top:1rem">
+          <strong>حدود مصر:</strong>
+          <ul style="margin-top:.4rem">
+            <li>جنوبًا: دائرة عرض 22 (رُسمت 1899)</li>
+            <li>شمالًا: ساحل البحر المتوسط</li>
+            <li>شرقًا: خليج العقبة + البحر الأحمر + حدود فلسطين (1906)</li>
+            <li>غربًا: خط طول 25 (حدود ليبيا — 1925)</li>
+          </ul>
+        </div>
+        <p style="margin-top:1rem"><strong>المياه الإقليمية:</strong> 12 ميلًا بحريًا من خط الأساس للساحل.</p>
+        <p><strong>المجال الجوي:</strong> المساحة الرأسية التي تعلو اليابس والمياه الإقليمية.</p>
+      </div>
+
+      <!-- السلطة -->
+      <div class="card reveal">
+        <h3><span class="card-icon">🏛️</span>3. السلطة</h3>
+        <p>المؤسسات التي تدير شئون الدولة وتضع القوانين وتنفذها وتحافظ على الأمن العام.</p>
+        <p style="margin-top:1rem;font-weight:700;color:var(--terracotta)">السلطات الثلاث وفق الدستور:</p>
+        <div class="table-wrap" style="margin-top:.8rem">
+          <table>
+            <tr><th>السلطة</th><th>المادة</th><th>الاختصاص</th></tr>
+            <tr><td>التشريعية</td><td>101</td><td>سن القوانين + الموازنة + الرقابة</td></tr>
+            <tr><td>التنفيذية</td><td>139/163</td><td>تنفيذ القوانين وإدارة الدولة</td></tr>
+            <tr><td>القضائية</td><td>184</td><td>الفصل في المنازعات وإصدار الأحكام</td></tr>
+          </table>
+        </div>
+        <div class="tip">
+          <code>ش ر ق</code>
+          <p style="margin-top:.5rem;font-weight:700">ش<small>رعية</small> — ر<small>ئيس</small> — ق<small>ضاء</small></p>
+        </div>
+      </div>
+
+      <!-- السيادة -->
+      <div class="card reveal">
+        <h3><span class="card-icon">👑</span>4. السيادة</h3>
+        <p>استقلال الدولة في اتخاذ قراراتها فيما يتعلق بشئونها الداخلية والخارجية دون خضوع لسلطة خارجية.</p>
+        <div class="grid grid-2" style="margin-top:1rem;gap:.8rem">
+          <div class="definition" style="margin:0">
+            <strong>الداخلية:</strong>
+            <ul style="margin-top:.3rem;font-size:.92rem">
+              <li>سن القوانين</li>
+              <li>حفظ الأمن</li>
+              <li>إدارة شئون المواطنين</li>
+            </ul>
+          </div>
+          <div class="definition" style="margin:0">
+            <strong>الخارجية:</strong>
+            <ul style="margin-top:.3rem;font-size:.92rem">
+              <li>إبرام المعاهدات</li>
+              <li>العلاقات الدبلوماسية</li>
+              <li>التمثيل الدولي</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الحيز الجغرافي بالتفصيل ========== -->
+<section class="section papyrus-bg" id="geography">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">الحيز الجغرافي بالتفصيل</h2>
+      <p class="section-subtitle">حدود مصر... خطوط على الخريطة أم رمز للسيادة؟</p>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat"><div class="num">22°</div><div class="label">دائرة عرض جنوبًا</div></div>
+      <div class="stat"><div class="num">25°</div><div class="label">خط طول غربًا</div></div>
+      <div class="stat"><div class="num">12</div><div class="label">ميل بحري مياه إقليمية</div></div>
+      <div class="stat"><div class="num">1906</div><div class="label">حدود مصر وفلسطين</div></div>
+    </div>
+
+    <div class="card reveal">
+      <h3><span class="card-icon">🌊</span>أهمية الحيز الجغرافي</h3>
+      <p>الحيز الجغرافي ليس مجرد أرض، بل هو كيان متكامل تمارس فيه الدولة سلطتها وتحمي مصالحها:</p>
+      <ul>
+        <li><strong>مثال 1:</strong> لا يُسمح لأي طائرة بدخول المجال الجوي المصري دون تصريح رسمي — دليل على السيادة الجوية.</li>
+        <li><strong>مثال 2:</strong> الدولة مسؤولة عن حماية قناة السويس ومراقبة السفن العابرة — دليل على السيادة على الممرات المائية.</li>
+      </ul>
+      <div class="definition">
+        <strong>قاعدة ذهبية:</strong> لا تقوم دولة من دون وجود حدود محددة ومعترف بها.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== السلطة ========== -->
+<section class="section papyrus-bg" id="power" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">السلطة في الدولة المصرية</h2>
+      <p class="section-subtitle">ثلاث سلطات... تكامل لا تصادم</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card reveal">
+        <h3><span class="card-icon">📜</span>التشريعية</h3>
+        <p><strong>المادة 101:</strong> مجلس النواب يتولى:</p>
+        <ul>
+          <li>سن القوانين</li>
+          <li>إقرار السياسة العامة</li>
+          <li>الموازنة العامة</li>
+          <li>الرقابة على السلطة التنفيذية</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3><span class="card-icon">⚖️</span>التنفيذية</h3>
+        <p><strong>المادة 139/163:</strong></p>
+        <ul>
+          <li>رئيس الجمهورية: رئيس الدولة ورئيس السلطة التنفيذية</li>
+          <li>الحكومة: رئيس الوزراء والوزراء</li>
+          <li>تنفيذ القوانين وإدارة شئون الدولة</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3><span class="card-icon">🔨</span>القضائية</h3>
+        <p><strong>المادة 184:</strong></p>
+        <ul>
+          <li>مستقلة</li>
+          <li>تتولاها المحاكم</li>
+          <li>تصدر الأحكام وفق القانون</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip reveal" style="margin-top:2rem">
+      <p style="font-weight:700;text-align:center;font-size:1.1rem">
+        🔑 القاعدة الذهبية: استقرار الدولة مرتبط بقوة مؤسساتها وتنظيمها
+      </p>
+      <p style="text-align:center;margin-top:.5rem">
+        احترام مؤسسات الدولة والقانون واجب وطني على الجميع
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== السيادة ========== -->
+<section class="section papyrus-bg" id="sovereignty">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">السيادة</h2>
+      <p class="section-subtitle">كيف تؤثر السيادة على قدرة الدولة في اتخاذ قراراتها؟</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3><span class="card-icon">🏛️</span>السيادة الداخلية</h3>
+        <p>حرية الدولة في سن القوانين، وحفظ الأمن، وإدارة شئون المواطنين من دون أي ضغوط خارجية.</p>
+      </div>
+      <div class="card reveal">
+        <h3><span class="card-icon">🌍</span>السيادة الخارجية</h3>
+        <p>استقلال الدولة في علاقاتها الدولية، وحرية إبرام المعاهدات، وإقامة العلاقات الدبلوماسية، وحماية المصالح الوطنية، والتمثيل في المنظمات الدولية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== المقومات ========== -->
+<section class="section papyrus-bg" id="components" style="background:linear-gradient(180deg,var(--papyrus-dark),var(--papyrus))">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">مقومات نشأة الدولة المصرية وعوامل استمرارها</h2>
+      <p class="section-subtitle">لماذا استمرت مصر بينما سقطت دول أخرى؟</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3><span class="card-icon">🌍</span>1. الموقع الجغرافي والحدود الطبيعية</h3>
+        <p>وقوع مصر في قلب قارات العالم القديم جعلها مركزًا للتواصل الحضاري والتبادل التجاري.</p>
+        <p style="margin-top:.8rem">تتمتع بحدود طبيعية (الوادي والدلتا) ساعدت في حمايتها.</p>
+        <div class="definition">
+          <strong>مقولة جمال حمدان:</strong> "مصر دولة نهر، وموقعًا دولة برزخ" — النيل جعلها دولة زراعية مستقرة، والموقع جعلها جسرًا بين القارات.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">💧</span>2. الموارد الطبيعية</h3>
+        <p>نهر النيل أهم مورد طبيعي في مصر، وهو عامل أساسي لنشأة الدولة وحضارتها.</p>
+        <p style="margin-top:.8rem">بسببه تحول المصري من "جامع ثمار" إلى "مزارع مستقر".</p>
+        <ul>
+          <li>الأراضي الخصبة</li>
+          <li>المعادن</li>
+          <li>أحجار البناء</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🤝</span>3. التجانس البشري والوحدة الوطنية</h3>
+        <p>مصر من أكثر دول العالم تجانسًا؛ انصهر سكانها في بوتقة ثقافية واحدة منذ فجر التاريخ.</p>
+        <p style="margin-top:.8rem">لم يتأثر المصريون بثقافة المحتل بل حافظوا على هويتهم المصرية.</p>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🏛️</span>4. الحكومة المركزية القوية</h3>
+        <p>قيام حكومة مركزية قوية بعد توحيد القطرين على يد الملك مينا (نعرمر) هو الأساس الحقيقي لظهور الدولة المصرية.</p>
+        <p style="margin-top:.8rem">تحولت من تجمعات صغيرة إلى دولة منظمة ذات سلطة واحدة ونظام إداري موحد.</p>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🛡️</span>5. القوة العسكرية</h3>
+        <p>جيش من أبناء مصر يدافع عن أرضها.</p>
+        <div class="definition">
+          <strong>عقيدة الجيش المصري:</strong> "يبني ويحمي ويحافظ على الأرض ولا يعتدي"
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🏺</span>6. الحفاظ على الهوية المصرية</h3>
+        <p>حافظ المصريون على هويتهم الوطنية عبر العصور من خلال:</p>
+        <ul>
+          <li>التمسك باللغة والثقافة والتراث</li>
+          <li>حماية التراث الحضاري</li>
+          <li>تعريف الأجيال بتاريخ مصر</li>
+          <li>دعم الثقافة والفنون</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip reveal" style="margin-top:2rem;text-align:center">
+      <code>م و ت ح ق هـ</code>
+      <p style="margin-top:.8rem;font-weight:700;font-size:1.1rem">
+        م<small>وقع</small> — و<small>موارد</small> — ت<small>جانس</small> — ح<small>كومة</small> — ق<small>وة عسكرية</small> — هـ<small>وية</small>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الهكسوس ========== -->
+<section class="section papyrus-bg" id="hyksos" style="background:linear-gradient(180deg,#2c1810,#3b2412);color:var(--sand)">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title" style="color:var(--gold-bright)">غزو الهكسوس لمصر</h2>
+      <p class="section-subtitle" style="color:var(--sand)">أول احتلال أجنبي لمصر... وكيف تحولت الأزمة إلى نقطة انطلاق؟</p>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم</div>
+        <p>مع نهاية عصر الدولة الوسطى، ضعفت السلطة المركزية، وأصبحت غير قادرة على حماية حدودها الشمالية الشرقية. في ظل هذه الاضطرابات، تمكن الهكسوس من التسلل إلى دلتا النيل.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:2rem">
+      <div class="card reveal" style="background:rgba(244,228,193,.95)">
+        <h3><span class="card-icon">⚔️</span>عوامل نجاح الهكسوس</h3>
+        <ul>
+          <li><strong>ضعف السلطة المركزية</strong> في نهاية الدولة الوسطى</li>
+          <li><strong>عجز الدولة</strong> عن حماية حدودها الشمالية الشرقية</li>
+          <li><strong>تفوق الهكسوس عسكريًا</strong> (أسلحة متطورة + قدرة على الحركة والمناورة)</li>
+          <li><strong>اختيارهم الدلتا</strong> (أخصب وأقرب مناطق الاتصال بطرق التجارة)</li>
+          <li><strong>اتخاذهم أواريس</strong> عاصمة سياسية وعسكرية</li>
+        </ul>
+        <div class="tip">
+          <code>ض ع ت ا</code>
+          <p style="margin-top:.5rem;font-weight:700">ض<small>عف</small> — ع<small>جز</small> — ت<small>فوق عسكري</small> — ا<small>ختيار الدلتا</small></p>
+        </div>
+      </div>
+
+      <div class="card reveal" style="background:rgba(244,228,193,.95)">
+        <h3><span class="card-icon">👑</span>لماذا الدلتا تحديدًا؟</h3>
+        <p>مثلت الدلتا:</p>
+        <ul>
+          <li>النطاق الاقتصادي الأخصب في مصر</li>
+          <li>أقرب مناطق الاتصال بطرق التجارة القادمة من آسيا</li>
+          <li>السيطرة عليها = التحكم في جزء كبير من الموارد الاقتصادية</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- الخط الزمني -->
+    <div class="title-wrap reveal" style="margin-top:4rem">
+      <h3 style="font-family:'Amiri',serif;font-size:2rem;color:var(--gold-bright)">مراحل طرد الهكسوس</h3>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-card" style="background:rgba(244,228,193,.95)">
+          <h4>المرحلة الأولى: التحدي والمواجهة</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>سقنن رع</strong> — تولى قيادة طيبة، وبدأ في توسيع نفوذه حتى أبيدوس، وبدأ دفع الهكسوس شمالًا. قُتل في المعركة لكن شرارة المقاومة لم تنطفئ.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-card" style="background:rgba(244,228,193,.95)">
+          <h4>المرحلة الثانية: المقاومة والتخطيط</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>كامس</strong> — أعاد تنظيم الجيش بروحهجومية وحضارية، وانتصر في مصر الوسطى، ثم قطع طرق الإمداد من كوش لعزل الهكسوس، وتوجه شمالًا لكنه توفي قبل المعركة الحاسمة.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-card" style="background:rgba(244,228,193,.95)">
+          <h4>المرحلة الثالثة: الحسم والنصر</h4>
+          <p style="color:var(--brown-light);font-size:.95rem"><strong>أحمس الأول</strong> — حاصر الهكسوس في أواريس، وطاردهم خارج مصر، وأخضع حكام الأقاليم، وأسس أول إمبراطورية في التاريخ المصري القديم.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip reveal" style="text-align:center">
+      <code>س ك أ</code>
+      <p style="margin-top:.5rem;font-weight:700">س<small>قنن رع</small> — ك<small>امس</small> — أ<small>حمس</small></p>
+    </div>
+
+    <div class="card reveal" style="margin-top:3rem">
+      <h3><span class="card-icon">👸</span>دور الملكة إياح حتب</h3>
+      <p>زوجة سقنن رع وأم كامس وأحمس. جمعت جيشها، وحمت الناس، وأعادت الهاربين، ولمّت شتات المهاجرين، وهدّأت ما حل بالصعيد من خوف. سجل أحمس إنجازاتها على لوحة الكرنك.</p>
+    </div>
+
+    <div class="grid grid-3 reveal" style="margin-top:2rem">
+      <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
+        <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🛡️</span>تطوير الجيش</h3>
+        <p style="color:var(--sand)">استخدم المصريون العجلات الحربية وحسّنوا الأسلحة بعد التعرف عليها من الهكسوس.</p>
+      </div>
+      <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
+        <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🏛️</span>تأمين الحدود</h3>
+        <p style="color:var(--sand)">بناء أول إمبراطورية مصرية وتأمين الحدود الشمالية والشرقية.</p>
+      </div>
+      <div class="card" style="background:rgba(201,162,39,.15);border-color:var(--gold)">
+        <h3 style="color:var(--gold-bright);font-size:1.2rem"><span class="card-icon">🤝</span>الوحدة الوطنية</h3>
+        <p style="color:var(--sand)">الوحدة هي السبيل الوحيد للتحرر من الاحتلال.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الفرس ========== -->
+<section class="section papyrus-bg" id="persians">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">الغزو الفارسي لمصر</h2>
+      <p class="section-subtitle">525 ق.م — سقوط مصر في يد الإمبراطورية الفارسية</p>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar student">🧑‍🎓</div>
+      <div class="bubble">
+        <div class="name">الطالب</div>
+        <p>هل كان سقوط مصر نتيجة قوة الفرس فقط؟</p>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <div class="avatar pharaoh">👑</div>
+      <div class="bubble">
+        <div class="name">المعلم</div>
+        <p>لا. كان سقوط مصر نتيجة <strong>تفاعل</strong> بين الضعف الداخلي والطموح الفارسي. في العصر المتأخر كانت مصر تمر بحالة من الاضطراب السياسي والصراع الداخلي، وأصبحت هدفًا للأطماع الخارجية خاصة الإمبراطورية الفارسية.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:2rem">
+      <div class="card reveal">
+        <h3><span class="card-icon">⚔️</span>الأحداث</h3>
+        <ul>
+          <li>عام <strong>525 ق.م</strong>: التقى الجيشان المصري والفارسي في شرق الدلتا</li>
+          <li>قيادة الملك الفارسي <strong>قمبيز الثاني</strong></li>
+          <li>هزيمة المصريين ودخول الفرس لمصر</li>
+          <li>تأسيس الأسرة السابعة والعشرين</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🔥</span>المقاومة المصرية</h3>
+        <p>رفض الشعب المصري الاحتلال الفارسي، وظهرت حركات مقاومة وثورات للاستقلال الوطني، مما عكس تمسك المصريين بهويتهم ورفضهم للسيطرة الأجنبية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الإسكندر ========== -->
+<section class="section papyrus-bg" id="alexander" style="background:linear-gradient(180deg,var(--papyrus),var(--papyrus-dark))">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">غزو الإسكندر الأكبر لمصر</h2>
+      <p class="section-subtitle">332 ق.م — الدخول دون مقاومة... لماذا؟</p>
+    </div>
+
+    <div class="card reveal">
+      <h3><span class="card-icon">🏛️</span>السياق التاريخي</h3>
+      <p>عند وصول الإسكندر الأكبر إلى مصر عام 332 ق.م، كانت البلاد تعاني وطأة الحكم الفارسي والضرائب المثقلة على المصريين. هذا الوضع المناخي في مصر جعلها تقبل قوة خارجية قادرة على القضاء على الفرس.</p>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:2rem">
+      <div class="card reveal">
+        <h3><span class="card-icon">👑</span>كيف ثبّت الإسكندر نفوذه؟</h3>
+        <ul>
+          <li>حصل على اعتراف ديني بسلطته بادعائه أنه ابن الإله آمون</li>
+          <li>احترم عادات المصريين وتقاليدهم</li>
+          <li>أسس مدينة الإسكندرية لتصبح مركزًا تجاريًا وثقافيًا وعسكريًا</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🤔</span>رأيان متعارضان</h3>
+        <div class="definition" style="margin:0 0 .8rem 0">
+          <strong>الرأي الأول:</strong> المصريون اعتبروه مُحررًا من الفرس، وعمل على احترام تقاليدهم الدينية.
+        </div>
+        <div class="definition" style="margin:0">
+          <strong>الرأي الثاني:</strong> استقبلوه بحذر، وشارك الكهنة ورجال الحكم والإدارة في نيته، مستخدمًا توازنًا بين القوة العسكرية والسياسة لسكب ثقة السكان.
+        </div>
+      </div>
+    </div>
+
+    <div class="tip reveal" style="margin-top:2rem">
+      <p style="font-weight:700;text-align:center">🔑 الدرس المستفاد: قد يُظهر لك عدوك التودد والمحبة، لكنه سيبقى عدوًا يريد القضاء على هويتك.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== البطالمة والرومان ========== -->
+<section class="section papyrus-bg" id="romans">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">البطالمة والرومان</h2>
+      <p class="section-subtitle">من دولة البطالمة إلى الولاية الرومانية</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3><span class="card-icon">👑</span>دولة البطالمة (323 ق.م)</h3>
+        <p>بعد وفاة الإسكندر الأكبر، واجهت إمبراطوريته أزمة كبرى؛ دخل قادة جيشه في صراع ممتد بينهم من أجل فرض سيطرتهم على أكبر قدر من الأراضي.</p>
+        <p style="margin-top:.8rem">برزت شخصية القائد <strong>بطلميوس بن لاجوس</strong> الذي فرض سيطرته على مصر وجعلها قاعدة لحكمه.</p>
+      </div>
+
+      <div class="card reveal">
+        <h3><span class="card-icon">🦅</span>مصر تحت حكم الرومان</h3>
+        <p>مثّلت مصر بالنسبة للرومان مركزًا اقتصاديًا واستراتيجيًا مهمًا؛ خاصة أنها أحد أهم مصادر الحبوب في العالم القديم، وموقعها الجغرافي منحها القدرة على التحكم في طرق التجارة بين الشرق والغرب.</p>
+        <p style="margin-top:.8rem">بعد معركة <strong>أكتيوم البحرية</strong> وهزيمة كليوباترا السابعة، سيطر أكتافيوس على مصر لتصبح ولاية رومانية.</p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:2rem">
+      <h3><span class="card-icon">⚖️</span>الإدارة الرومانية</h3>
+      <p>كانت مصر تُدار بواسطة حاكم روماني يعيّنه الإمبراطور مباشرة، ويخضع له وحده، ولا يجوز لأي عضو من مجلس الشيوخ الروماني دخولها إلا بإذن خاص من الإمبراطور؛ <strong>لما لمصر من أهمية استراتيجية واقتصادية كبرى</strong>.</p>
+    </div>
+
+    <div class="card reveal" style="margin-top:2rem">
+      <h3><span class="card-icon">🔥</span>المقاومة المصرية للحكم الروماني</h3>
+      <p>زاد اضطهاد الرومان للمصريين بعد اعتناقهم المسيحية؛ حيث تعرضوا للتعذيب والسجن والقتل، وهُدمت كنائسهم وأُحرقت الكتب الدينية. بلغ الاضطهاد ذروته في عهد الإمبراطور دقلديانوس، حتى عُرف هذا العصر في مصر باسم <strong>"عصر الشهداء"</strong>.</p>
+      <p style="margin-top:.8rem">انتهى هذا الاضطهاد بعد اعتراف الإمبراطور سقطنطين بالمسيحية وإعلانه سياسة التسامح الديني.</p>
+    </div>
+
+    <div class="grid grid-3 reveal" style="margin-top:2rem">
+      <div class="card" style="background:linear-gradient(135deg,rgba(30,96,145,.15),rgba(30,96,145,.05));border-color:var(--nile)">
+        <h3 style="color:var(--nile-deep);font-size:1.2rem">⛪ تأثير المسيحية</h3>
+        <p>رسّخت قيم المحبة والتسامح، وظهرت الرهبنة، وازدهرت اللغة والفنون القبطية.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,rgba(181,101,29,.15),rgba(181,101,29,.05));border-color:var(--terracotta)">
+        <h3 style="color:var(--terracotta);font-size:1.2rem">🔥 الثورات</h3>
+        <p>بسبب الضرائب المفروضة، وحاول المصريون استعادة حكمهم للبلاد.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,rgba(201,162,39,.15),rgba(201,162,39,.05));border-color:var(--gold)">
+        <h3 style="color:var(--gold-deep);font-size:1.2rem">🏺 الهوية</h3>
+        <p>رغم الخضوع للرومان، ظل المصريون متمسكين بهويتهم الوطنية ورافضين للسيطرة الأجنبية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== الامتحان ========== -->
+<section class="exam-section" id="exam">
+  <div class="container">
+    <div class="title-wrap reveal">
+      <h2 class="section-title">📝 امتحان شامل</h2>
+      <p class="section-subtitle">30 سؤالًا اختياريًا صعبًا — 25 دقيقة — تصحيح فوري</p>
+    </div>
+
+    <div id="examIntro" class="card reveal" style="text-align:center;background:rgba(244,228,193,.95);color:var(--brown)">
+      <h3 style="justify-content:center"><span class="card-icon">📜</span>تعليمات الامتحان</h3>
+      <ul style="display:inline-block;text-align:right;margin:1rem auto">
+        <li>عدد الأسئلة: <strong>30 سؤالًا</strong></li>
+        <li>المدة: <strong>25 دقيقة</strong></li>
+        <li>لكل سؤال إجابة واحدة صحيحة</li>
+        <li>يمكنك التنقل بين الأسئلة بحرية</li>
+        <li>عند انتهاء الوقت يتم التسليم تلقائيًا</li>
+      </ul>
+      <div style="margin-top:1.5rem">
+        <button class="btn btn-primary" onclick="startExam()">🚀 ابدأ الامتحان</button>
+      </div>
+    </div>
+
+    <div id="examBody" style="display:none">
+      <div class="exam-header">
+        <div class="timer" id="timer">
+          <span class="timer-icon">⏳</span>
+          <span id="timerText">25:00</span>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="exam-info">
+          <strong id="answeredCount">0</strong> / 30 تمت الإجابة
+        </div>
+      </div>
+
+      <div class="q-nav" id="qNav"></div>
+
+      <div id="questionArea"></div>
+
+      <div class="exam-controls">
+        <button class="btn btn-secondary" id="prevBtn" onclick="prevQ()">⬅ السابق</button>
+        <button class="btn btn-submit" id="submitBtn" onclick="submitExam()" style="display:none">✅ تسليم الامتحان</button>
+        <button class="btn btn-primary" id="nextBtn" onclick="nextQ()">التالي ➡</button>
+      </div>
+    </div>
+
+    <div id="resultScreen" class="result-screen"></div>
+  </div>
+</section>
+
+<!-- ========== الفوتر ========== -->
+<footer>
+  <p class="gold">𓂀 مصر عبر التاريخ 𓂀</p>
+  <p style="margin-top:.5rem">رحلة تفاعلية شاملة في أركان الدولة ومقاومة الاحتلال</p>
+  <p style="margin-top:.5rem;opacity:.7;font-size:.85rem">صُمم لأغراض تعليمية — الوحدة الأولى</p>
+</footer>
+
+<script>
+/* ========== الهيروغليفية الطائرة ========== */
+const glyphs = ['𓂀','𓃭','𓅓','𓆣','𓇳','𓈖','𓉐','𓊪','𓋹','𓌙','𓍿','𓎛','𓏏','𓐍','𓁹','𓃀','𓄿','𓅱','𓆑','𓇋'];
+const glyphContainer = document.getElementById('hieroglyphs');
+for(let i=0;i<20;i++){
+  const g = document.createElement('div');
+  g.className = 'hieroglyph';
+  g.textContent = glyphs[i % glyphs.length];
+  g.style.left = Math.random()*100 + '%';
+  g.style.animationDuration = (12 + Math.random()*12) + 's';
+  g.style.animationDelay = (Math.random()*10) + 's';
+  g.style.fontSize = (1.5 + Math.random()*3) + 'rem';
+  glyphContainer.appendChild(g);
+}
+
+/* ========== Intersection Observer للحركات ========== */
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:.15});
+
+document.querySelectorAll('.reveal, .dialogue, .tl-item').forEach(el=>{
+  observer.observe(el);
+});
+
+/* ========== تفعيل روابط التنقل ========== */
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',function(){
+    document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+/* ============================================================
+   ================  الامتحان  ===============================
+   ============================================================ */
+
+const questions = [
+  {
+    q: "ما الركن الذي يُعد المصدر الوحيد للسلطات في الدولة المصرية وفق الدستور؟",
+    options: ["الحيز الجغرافي","الشعب","السلطة","السيادة"],
+    correct: 1,
+    expl: "المادة الرابعة من الدستور تنص على أن السيادة للشعب وحده، وهو مصدر السلطات."
+  },
+  {
+    q: "«الدولة وحدة سياسية تشغل حيزًا جغرافيًا محددًا» — ما الذي يميز هذا التعريف؟",
+    options: ["يركز على الجانب العسكري فقط","يجمع بين العناصر المادية والمعنوية","يهمل فكرة السيادة تمامًا","يقصر الدولة على الأرض فقط"],
+    correct: 1,
+    expl: "التعريف الحديث يجمع بين العناصر المادية (الحيز) والمعنوية (السلطة والسيادة والشعب)."
+  },
+  {
+    q: "لماذا يُعد الشعب الركن الأصيل في قيام الدولة؟",
+    options: ["لأنه الأكثر عددًا","لأنه مصدر السلطات وصاحب السيادة","لأنه يدفع الضرائب فقط","لأنه يدافع عن الحدود فقط"],
+    correct: 1,
+    expl: "الشعب هو مصدر السلطات وصاحب السيادة، ويشمل جميع المواطنين داخل الدولة أو خارجها."
+  },
+  {
+    q: "وفقًا للدستور المصري، السيادة تكون:",
+    options: ["للحكومة","للشعب وحده","للسلطة القضائية","لرئيس الجمهورية"],
+    correct: 1,
+    expl: "المادة الرابعة: السيادة للشعب وحده، يمارسها ويحميها، وهو مصدر السلطات."
+  },
+  {
+    q: "أي مما يلي يُعد من مظاهر السيادة الداخلية وليس الخارجية؟",
+    options: ["إبرام المعاهدات","التمثيل في المنظمات الدولية","سن القوانين وحفظ الأمن","إقامة العلاقات الدبلوماسية"],
+    correct: 2,
+    expl: "السيادة الداخلية تشمل: سن القوانين، حفظ الأمن، إدارة شؤون المواطنين دون ضغوط خارجية."
+  },
+  {
+    q: "دائرة عرض 22 شمالًا تمثل حدود مصر:",
+    options: ["الشمالية","الشرقية","الجنوبية","الغربية"],
+    correct: 2,
+    expl: "دائرة عرض 22 شمالًا هي الحدود الجنوبية لمصر، وقد رُسمت عام 1899 للفصل عن السودان."
+  },
+  {
+    q: "متى رُسم خط الحدود بين مصر وفلسطين؟",
+    options: ["1899","1906","1925","1919"],
+    correct: 1,
+    expl: "خط الحدود البرية بين مصر وفلسطين رُسم عام 1906."
+  },
+  {
+    q: "ما عرض المياه الإقليمية لمصر؟",
+    options: ["6 أميال بحرية","10 أميال بحرية","12 ميلًا بحريًا","24 ميلًا بحريًا"],
+    correct: 2,
+    expl: "تمتد المياه الإقليمية عادة لمسافة 12 ميلًا بحريًا من خط الأساس للساحل."
+  },
+  {
+    q: "المجال الجوي للدولة يشمل:",
+    options: ["اليابس فقط","المياه الإقليمية فقط","اليابس والمياه الإقليمية","الفضاء الخارجي"],
+    correct: 2,
+    expl: "المجال الجوي هو المساحة الرأسية التي تعلو اليابس والمياه الإقليمية."
+  },
+  {
+    q: "المادة 101 من الدستور المصري تتعلق بـ:",
+    options: ["السلطة التنفيذية","السلطة القضائية","السلطة التشريعية","رئيس الجمهورية"],
+    correct: 2,
+    expl: "المادة 101 تنص على أن مجلس النواب يتولى سلطة التشريع وإقرار السياسة العامة والموازنة."
+  },
+  {
+    q: "«رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية» — هذه المادة رقم:",
+    options: ["101","139","163","184"],
+    correct: 1,
+    expl: "المادة 139 تنص على أن رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية."
+  },
+  {
+    q: "السلطة القضائية وفق المادة 184:",
+    options: ["تضع القوانين","تنفذ القوانين","مستقلة وتتولاها المحاكم","تضع الموازنة العامة"],
+    correct: 2,
+    expl: "المادة 184: السلطة القضائية مستقلة، تتولاها المحاكم على اختلاف أنواعها ودرجاتها."
+  },
+  {
+    q: "أي مما يلي ليس من مقومات نشأة الدولة المصرية؟",
+    options: ["الموقع الجغرافي","الموارد الطبيعية","التجانس البشري","الانعزال عن العالم"],
+    correct: 3,
+    expl: "الانعزال عن العالم ليس من المقومات، بل على العكس؛ الانفتاح والموقع المتميز من المقومات."
+  },
+  {
+    q: "قول جمال حمدان «مصر دولة نهر وموقعًا دولة برزخ» يعني:",
+    options: ["مصر دولة زراعية فقط","مصر تجمع بين الاستقرار الزراعي والموقع الاستراتيجي","مصر دولة تجارية فقط","مصر دولة عسكرية فقط"],
+    correct: 1,
+    expl: "النيل جعلها دولة زراعية مستقرة، والموقع جعلها جسرًا (برزخًا) بين القارات."
+  },
+  {
+    q: "تحول المصري من «جامع ثمار» إلى «مزارع مستقر» كان بفضل:",
+    options: ["الجيش","نهر النيل","الحكومة المركزية","التجانس البشري"],
+    correct: 1,
+    expl: "نهر النيل هو العامل الأساسي لنشأة الدولة المصرية وحضارتها، وبه تحول المصري إلى مزارع مستقر."
+  },
+  {
+    q: "من الملك الذي وحّد القطرين وأسس الحكومة المركزية؟",
+    options: ["مينا (نعرمر)","سقنن رع","أحمس","كامس"],
+    correct: 0,
+    expl: "الملك مينا (نعرمر) وحّد القطرين وأسس الحكومة المركزية القوية، وهو الأساس الحقيقي لظهور الدولة المصرية."
+  },
+  {
+    q: "عقيدة الجيش المصري تقوم على:",
+    options: ["التوسع والفتوحات","البناء والحماية وعدم الاعتداء","السيطرة على الجيران","جمع الغنائم"],
+    correct: 1,
+    expl: "الجيش المصري يبني ويحمي ويحافظ على الأرض ولا يعتدي."
+  },
+  {
+    q: "أي مما يلي ليس من عوامل نجاح الهكسوس في السيطرة على مصر؟",
+    options: ["ضعف السلطة المركزية","تفوقهم العسكري","اختيارهم الدلتا","دعم الشعب المصري لهم"],
+    correct: 3,
+    expl: "الشعب المصري لم يدعم الهكسوس، بل قاومهم. العوامل الحقيقية: ضعف مركزي، عجز عن الحماية، تفوق عسكري، اختيار الدلتا."
+  },
+  {
+    q: "من الملك الذي بدأ المرحلة الأولى في حرب الهكسوس وقُتل في المعركة؟",
+    options: ["كامس","سقنن رع","أحمس","إياح حتب"],
+    correct: 1,
+    expl: "سقنن رع تولى قيادة طيبة وبدأ المرحلة الأولى، وقُتل في المعركة لكن شرارة المقاومة لم تنطفئ."
+  },
+  {
+    q: "من الملك الذي قطع طرق الإمداد القادمة من كوش لعزل الهكسوس؟",
+    options: ["سقنن رع","كامس","أحمس","مينا"],
+    correct: 1,
+    expl: "كامس اعتمد سياسة عسكرية تقوم على قطع طرق الإمداد القادمة من مملكة كوش؛ بهدف عزل الهكسوس."
+  },
+  {
+    q: "من الملك الذي أسس أول إمبراطورية في التاريخ المصري القديم؟",
+    options: ["سقنن رع","كامس","أحمس الأول","رمسيس الثاني"],
+    correct: 2,
+    expl: "أحمس الأول أكمل مسيرة أخيه ووالده، وحاصر الهكسوس في أواريس، وطاردهم خارج مصر، وأسس أول إمبراطورية."
+  },
+  {
+    q: "دور الملكة إياح حتب تمثل في:",
+    options: ["قيادة المعارك بنفسها","جمع الجيش وحماية الناس وإعادة الهاربين","إدارة البلاد سياسيًا فقط","التفاوض مع الهكسوس"],
+    correct: 1,
+    expl: "إياح حتب جمعت جيشها، وحمت الناس، وأعادت الهاربين، ولمّت شتات المهاجرين، وهدّأت الصعيد."
+  },
+  {
+    q: "متى سقطت مصر في يد الفرس؟",
+    options: ["332 ق.م","525 ق.م","323 ق.م","1906 م"],
+    correct: 1,
+    expl: "سقطت مصر في يد الفرس عام 525 ق.م بعد معركة شرق الدلتا."
+  },
+  {
+    q: "الملك الفارسي الذي قاد احتلال مصر:",
+    options: ["داريوس","قمبيز الثاني","أحشويرش","قورش"],
+    correct: 1,
+    expl: "قمبيز الثاني هو الملك الفارسي الذي قاد احتلال مصر عام 525 ق.م."
+  },
+  {
+    q: "دخل الإسكندر الأكبر مصر عام:",
+    options: ["525 ق.م","323 ق.م","332 ق.م","30 ق.م"],
+    correct: 2,
+    expl: "دخل الإسكندر الأكبر مصر عام 332 ق.م."
+  },
+  {
+    q: "لماذا لم يلقَ الإسكندر مقاومة تذكر عند دخول مصر؟",
+    options: ["لأنه كان قويًا عسكريًا فقط","لأن المصريين رأوا فيه محررًا من الفرس","لأنه احترم العادات فقط","لأن الجيش المصري كان ضعيفًا"],
+    correct: 1,
+    expl: "المصريون وجدوا في الإسكندر فرصة للتخلص من الحكم الفارسي الذي عانوا منه."
+  },
+  {
+    q: "بعد وفاة الإسكندر، سيطر على مصر:",
+    options: ["سلوقس","كاسندر","بطلميوس بن لاجوس","ليسيماكوس"],
+    correct: 2,
+    expl: "بطلميوس بن لاجوس فرض سيطرته على مصر وجعلها قاعدة لحكمه، وأسس دولة البطالمة."
+  },
+  {
+    q: "معركة أكتيوم البحرية أدت إلى:",
+    options: ["تأسيس دولة البطالمة","سقوط مصر في يد الرومان","طرد الهكسوس","طرد الفرس"],
+    correct: 1,
+    expl: "بعد معركة أكتيوم البحرية وهزيمة كليوباترا السابعة، سيطر أكتافيوس على مصر لتصبح ولاية رومانية."
+  },
+  {
+    q: "«عصر الشهداء» في مصر يشير إلى:",
+    options: ["عصر الهكسوس","عصر الاضطهاد الروماني للمسيحيين","عصر الفرس","عصر البطالمة"],
+    correct: 1,
+    expl: "بلغ اضطهاد الرومان للمسيحيين ذروته في عهد دقلديانوس، حتى عُرف هذا العصر باسم «عصر الشهداء»."
+  },
+  {
+    q: "لماذا منع الرومان دخول أعضاء مجلس الشيوخ إلى مصر إلا بإذن؟",
+    options: ["لأن مصر بعيدة جغرافيًا","لأهمية مصر الاستراتيجية والاقتصادية","لأن المصريين رفضوا ذلك","لأن المناخ كان صعبًا"],
+    correct: 1,
+    expl: "لما لمصر من أهمية استراتيجية واقتصادية كبرى للإمبراطورية الرومانية."
+  }
+];
+
+let currentQ = 0;
+let answers = new Array(questions.length).fill(null);
+let timeLeft = 25 * 60;
+let timerInterval = null;
+let examStarted = false;
+
+function startExam(){
+  document.getElementById('examIntro').style.display = 'none';
+  document.getElementById('examBody').style.display = 'block';
+  examStarted = true;
+  buildQNav();
+  renderQuestion();
+  startTimer();
+  window.scrollTo({top: document.getElementById('exam').offsetTop - 60, behavior:'smooth'});
+}
+
+function buildQNav(){
+  const nav = document.getElementById('qNav');
+  nav.innerHTML = '';
+  questions.forEach((_,i)=>{
+    const b = document.createElement('button');
+    b.textContent = i+1;
+    b.onclick = ()=>{ currentQ = i; renderQuestion(); };
+    nav.appendChild(b);
+  });
+}
+
+function updateQNav(){
+  const nav = document.getElementById('qNav').children;
+  for(let i=0;i<nav.length;i++){
+    nav[i].classList.remove('current','answered');
+    if(answers[i] !== null) nav[i].classList.add('answered');
+    if(i === currentQ) nav[i].classList.add('current');
+  }
+}
+
+function renderQuestion(){
+  updateQNav();
+  const q = questions[currentQ];
+  const area = document.getElementById('questionArea');
+  area.innerHTML = `
+    <div class="question-card">
+      <div class="q-number">السؤال ${currentQ+1} من ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="options">
+        ${q.options.map((opt,i)=>{
+          const selected = answers[currentQ] === i ? 'selected' : '';
+          return `<div class="option ${selected}" onclick="selectOption(${i})">
+            <span class="option-key">${['أ','ب','ج','د'][i]}</span>
+            <span>${opt}</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('prevBtn').disabled = currentQ === 0;
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  if(currentQ === questions.length - 1){
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'inline-flex';
+  } else {
+    nextBtn.style.display = 'inline-flex';
+    submitBtn.style.display = 'none';
+  }
+  updateProgress();
+}
+
+function selectOption(i){
+  answers[currentQ] = i;
+  renderQuestion();
+}
+
+function nextQ(){
+  if(currentQ < questions.length - 1){
+    currentQ++;
+    renderQuestion();
+  }
+}
+
+function prevQ(){
+  if(currentQ > 0){
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function updateProgress(){
+  const answered = answers.filter(a=>a!==null).length;
+  document.getElementById('answeredCount').textContent = answered;
+  document.getElementById('progressBar').style.width = (answered/questions.length*100) + '%';
+}
+
+function startTimer(){
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    const m = Math.floor(timeLeft/60);
+    const s = timeLeft%60;
+    document.getElementById('timerText').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if(timeLeft <= 60) document.getElementById('timer').classList.add('warning');
+    if(timeLeft <= 0){
+      clearInterval(timerInterval);
+      submitExam(true);
+    }
+  },1000);
+}
+
+function submitExam(auto=false){
+  if(!auto){
+    const unanswered = answers.filter(a=>a===null).length;
+    if(unanswered > 0){
+      if(!confirm(`لديك ${unanswered} سؤالًا بدون إجابة. هل تريد التسليم؟`)) return;
+    }
+  }
+  clearInterval(timerInterval);
+  examStarted = false;
+  let correct = 0;
+  answers.forEach((a,i)=>{
+    if(a === questions[i].correct) correct++;
+  });
+  const score = Math.round((correct/questions.length)*100);
+  showResult(correct, score);
+}
+
+function showResult(correct, score){
+  document.getElementById('examBody').style.display = 'none';
+  const result = document.getElementById('resultScreen');
+  let grade, gradeClass;
+  if(score >= 85){ grade = 'ممتاز 🏆'; gradeClass = 'grade-excellent'; }
+  else if(score >= 70){ grade = 'جيد جدًا ⭐'; gradeClass = 'grade-good'; }
+  else if(score >= 50){ grade = 'مقبول ✅'; gradeClass = 'grade-pass'; }
+  else { grade = 'يحتاج مراجعة 📚'; gradeClass = 'grade-fail'; }
+
+  const wrong = questions.length - correct;
+  const timeUsed = 25*60 - timeLeft;
+  const m = Math.floor(timeUsed/60);
+  const s = timeUsed%60;
+
+  result.innerHTML = `
+    <h2 class="amiri" style="font-size:2rem;color:var(--brown)">نتيجتك النهائية</h2>
+    <div class="result-score">${score}%</div>
+    <div class="result-grade ${gradeClass}">${grade}</div>
+
+    <div class="result-stats">
+      <div class="result-stat"><div class="n">${correct}</div><div class="l">إجابات صحيحة</div></div>
+      <div class="result-stat"><div class="n">${wrong}</div><div class="l">إجابات خاطئة</div></div>
+      <div class="result-stat"><div class="n">${questions.length}</div><div class="l">إجمالي الأسئلة</div></div>
+      <div class="result-stat"><div class="n">${m}:${String(s).padStart(2,'0')}</div><div class="l">الوقت المستغرق</div></div>
+    </div>
+
+    <div style="margin:1.5rem 0">
+      <button class="btn btn-primary" onclick="restartExam()">🔄 إعادة الامتحان</button>
+    </div>
+
+    <h3 class="amiri" style="font-size:1.5rem;color:var(--brown);margin-top:2rem;text-align:right">📋 مراجعة الإجابات</h3>
+    <div class="review">
+      ${questions.map((q,i)=>{
+        const userAns = answers[i];
+        const isCorrect = userAns === q.correct;
+        return `
+          <div class="review-item ${isCorrect?'correct':'wrong'}">
+            <div class="rq">${i+1}. ${q.q}</div>
+            <div class="ra ${isCorrect?'correct-ans':'wrong-ans'}">
+              ${isCorrect ? '✅ إجابتك صحيحة: ' : '❌ إجابتك: '}
+              ${userAns !== null ? q.options[userAns] : 'لم تُجب'}
+            </div>
+            ${!isCorrect ? `<div class="ra correct-ans">✅ الإجابة الصحيحة: ${q.options[q.correct]}</div>` : ''}
+            <div class="expl">${q.expl}</div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+  result.classList.add('show');
+  window.scrollTo({top: document.getElementById('exam').offsetTop - 60, behavior:'smooth'});
+}
+
+function restartExam(){
+  currentQ = 0;
+  answers = new Array(questions.length).fill(null);
+  timeLeft = 25*60;
+  document.getElementById('timerText').textContent = '25:00';
+  document.getElementById('timer').classList.remove('warning');
+  document.getElementById('resultScreen').classList.remove('show');
+  document.getElementById('resultScreen').innerHTML = '';
+  document.getElementById('examIntro').style.display = 'block';
+  document.getElementById('examBody').style.display = 'none';
+  window.scrollTo({top: document.getElementById('exam').offsetTop - 60, behavior:'smooth'});
+}
+
+/* ========== تفعيل أول رابط في التنقل ========== */
+document.querySelector('.nav a').classList.add('active');
+</script>
+
+</body>
+</html>
